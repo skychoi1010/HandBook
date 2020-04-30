@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HorizontalPicker/HorizontalPicker.iml" filepath="$PROJECT_DIR$/HorizontalPicker/HorizontalPicker.iml" group="Water Drinking Reminder/HorizontalPicker" />
+      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" group="Water Drinking Reminder/MPChartLib" />
+      <module fileurl="file://$PROJECT_DIR$/Water Drinking Reminder.iml" filepath="$PROJECT_DIR$/Water Drinking Reminder.iml" group="Water Drinking Reminder" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Water Drinking Reminder/app" />
+      <module fileurl="file://$PROJECT_DIR$/appbasiclibs/appbasiclibs.iml" filepath="$PROJECT_DIR$/appbasiclibs/appbasiclibs.iml" group="Water Drinking Reminder/appbasiclibs" />
+    </modules>
+  </component>
+</project>

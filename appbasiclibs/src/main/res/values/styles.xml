@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppDialogTheme">
+        <!-- parent="android:Theme.Holo.Dialog.NoActionBar" -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:textColorPrimary">#F25A04</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+</resources>
