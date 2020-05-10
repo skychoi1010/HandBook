@@ -22,14 +22,14 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="true"
-                android:gravity="center"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/dp_40"
-                android:text="@string/str_you_should_drink_at_least"
-                android:textSize="@dimen/dp_20"
+                android:fontFamily="@font/calibri_light"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="you should stretch at least"
                 android:textColor="@color/rdo_gender_select"
-                android:fontFamily="@font/calibri_light"/>
+                android:textSize="@dimen/dp_20" />
             
             <RelativeLayout
                 android:layout_width="@dimen/dp_200"
@@ -48,25 +48,25 @@
                         android:id="@+id/lbl_goal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:includeFontPadding="false"
                         android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/calibri_bold"
                         android:gravity="center"
-                        android:text="4500"
-                        android:textSize="@dimen/dp_35"
+                        android:includeFontPadding="false"
+                        android:text="5"
                         android:textColor="@color/rdo_gender_select"
-                        android:fontFamily="@font/calibri_bold"/>
+                        android:textSize="@dimen/dp_35" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/lbl_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:includeFontPadding="false"
                         android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/calibri_bold"
                         android:gravity="center"
-                        android:text="ml"
-                        android:textSize="@dimen/dp_25"
+                        android:includeFontPadding="false"
+                        android:text="min"
                         android:textColor="@color/rdo_gender_select"
-                        android:fontFamily="@font/calibri_bold"/>
+                        android:textSize="@dimen/dp_25" />
 
                 </LinearLayout>
 
@@ -75,14 +75,14 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="true"
-                android:gravity="center"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/dp_20"
-                android:text="@string/str_to_reach_your_daily_goal"
-                android:textSize="@dimen/dp_20"
+                android:fontFamily="@font/calibri_light"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="times per hour"
                 android:textColor="@color/rdo_gender_select"
-                android:fontFamily="@font/calibri_light"/>
+                android:textSize="@dimen/dp_20" />
 
 
             <androidx.appcompat.widget.AppCompatTextView

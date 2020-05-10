@@ -196,13 +196,13 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/open_history"
-                                    android:gravity="center_horizontal"
                                     android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/calibri_regular"
+                                    android:gravity="center_horizontal"
                                     android:includeFontPadding="true"
-                                    android:text="@string/str_history"
-                                    android:textSize="@dimen/dp_10"
+                                    android:text="Report"
                                     android:textColor="@color/rdo_gender_select"
-                                    android:fontFamily="@font/calibri_regular"/>
+                                    android:textSize="@dimen/dp_10" />
 
                             </RelativeLayout>
 

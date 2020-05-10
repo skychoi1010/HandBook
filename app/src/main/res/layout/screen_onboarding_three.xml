@@ -22,14 +22,14 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="true"
-                android:gravity="center"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/dp_20"
-                android:text="@string/str_height"
-                android:textSize="@dimen/dp_20"
+                android:fontFamily="@font/calibri_bold"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="warning level"
                 android:textColor="@color/rdo_gender_select"
-                android:fontFamily="@font/calibri_bold"/>
+                android:textSize="@dimen/dp_20" />
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -107,20 +107,17 @@
                 />
 
 
-
-
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="true"
-                android:gravity="center"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/dp_30"
-                android:text="@string/str_weight"
-                android:textSize="@dimen/dp_20"
+                android:fontFamily="@font/calibri_bold"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="stretching interval"
                 android:textColor="@color/rdo_gender_select"
-                android:fontFamily="@font/calibri_bold"/>
+                android:textSize="@dimen/dp_20" />
 
             <RelativeLayout
                 android:layout_width="fill_parent"

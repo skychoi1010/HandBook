@@ -405,7 +405,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		img_next=findViewById(R.id.img_next);
 
 		img_user=findViewById(R.id.img_user);
-		open_profile=findViewById(R.id.open_profile);
+		//open_profile=findViewById(R.id.open_profile);
 
 		btn_rate_us=findViewById(R.id.btn_rate_us);
 		btn_contact_us=findViewById(R.id.btn_contact_us);
@@ -422,7 +422,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		menu_name.clear();
 		menu_name.add(new Menu(sh.get_string(R.string.str_home),true));
 		menu_name.add(new Menu(sh.get_string(R.string.str_drink_history),false));
-		menu_name.add(new Menu(sh.get_string(R.string.str_drink_report),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_advance_settings),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_settings),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_privacy_policy),false));
@@ -440,7 +440,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				}
 				else if(position==2)
 				{
-					intent=new Intent(act,Screen_Report.class);
+					intent=new Intent(act,Screen_Reminder.class);
 					startActivity(intent);
 				}
 				else if(position==3)
@@ -499,7 +499,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		mDrawerList.setAdapter(menuAdapter);
 
-		open_profile.setOnClickListener(new View.OnClickListener() {
+		/*open_profile.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
@@ -513,7 +513,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 
 			}
-		});
+		});*/
 
 		btn_alarm.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -756,8 +756,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		}
 
-		next_reminder_block.setVisibility(View.VISIBLE);
-
+		//next_reminder_block.setVisibility(View.INVISIBLE);
+/*
 		if(reminder_data.size()>0) {
 
 			//Locale locale = Resources.getSystem().getConfiguration().locale;
@@ -766,7 +766,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			lbl_next_reminder.setText(sh.get_string(R.string.str_next_reminder).replace("$1", reminder_data.get(tmp_pos).getTime()));
 		}
 		else
-			next_reminder_block.setVisibility(View.INVISIBLE);
+			next_reminder_block.setVisibility(View.INVISIBLE);*/
 	}
 
 	public long getMillisecond(String givenDateString)
@@ -838,7 +838,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				});
 
 		lbl_next_reminder=findViewById(R.id.lbl_next_reminder);
-		next_reminder_block=findViewById(R.id.next_reminder_block);
+		//next_reminder_block=findViewById(R.id.next_reminder_block);
 
 		add_water=findViewById(R.id.add_water);
 
@@ -883,7 +883,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			@Override
 			public void onClick(View v) {
 
-				intent=new Intent(act,Screen_History.class);
+				intent=new Intent(act,Screen_Report.class);
 				startActivity(intent);
 
 
@@ -1752,7 +1752,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		final ImageView img_silent=view.findViewById(R.id.img_silent);
 		final ImageView img_auto=view.findViewById(R.id.img_auto);
 
-		AppCompatTextView advance_settings=view.findViewById(R.id.advance_settings);
+		/*AppCompatTextView advance_settings=view.findViewById(R.id.advance_settings);
 
 		advance_settings.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -1760,7 +1760,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				dialog.dismiss();
 				startActivity(new Intent(act,Screen_Reminder.class));
 			}
-		});
+		});*/
 
 		LinearLayout custom_sound_block=view.findViewById(R.id.custom_sound_block);
 
