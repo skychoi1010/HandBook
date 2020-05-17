@@ -885,7 +885,7 @@ public class Screen_Profile extends MasterBaseAppCompatActivity
         RelativeLayout btn_add=view.findViewById(R.id.btn_add);
         ImageView img_cancel=view.findViewById(R.id.img_cancel);
 
-        final AppCompatEditText txt_name=view.findViewById(R.id.txt_name);
+        final AppCompatEditText txt_name=view.findViewById(R.id.txt_pass);
 
         txt_name.requestFocus();
 
@@ -1114,7 +1114,7 @@ public class Screen_Profile extends MasterBaseAppCompatActivity
         RelativeLayout btn_cancel=view.findViewById(R.id.btn_cancel);
         RelativeLayout btn_add=view.findViewById(R.id.btn_add);
         ImageView img_cancel=view.findViewById(R.id.img_cancel);
-        final AppCompatEditText txt_name=view.findViewById(R.id.txt_name);
+        final AppCompatEditText txt_name=view.findViewById(R.id.txt_pass);
 
 
         rdo_cm=view.findViewById(R.id.rdo_cm);
@@ -1334,7 +1334,7 @@ public class Screen_Profile extends MasterBaseAppCompatActivity
         RelativeLayout btn_cancel=view.findViewById(R.id.btn_cancel);
         RelativeLayout btn_add=view.findViewById(R.id.btn_add);
         ImageView img_cancel=view.findViewById(R.id.img_cancel);
-        final AppCompatEditText txt_name=view.findViewById(R.id.txt_name);
+        final AppCompatEditText txt_name=view.findViewById(R.id.txt_pass);
 
 
         rdo_kg=view.findViewById(R.id.rdo_kg);

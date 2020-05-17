@@ -34,17 +34,6 @@ android:orientation="vertical">
                 android:text="Handbook"
                 android:textColor="@color/rdo_gender_select"
                 android:textSize="70sp" />
-
-
-            <RadioGroup
-                android:id="@+id/radioGroup1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp_20"
-                android:orientation="horizontal" />
-
-
         </LinearLayout>
 
         <RelativeLayout
@@ -91,39 +80,28 @@ android:orientation="vertical">
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white">
+
             <LinearLayout
-                android.orientation="horizontal"
-                android:background="@color/white"
+                android:id="@+id/buttons"
+                android:layout_width="@dimen/dp_300"
+                android:layout_height="@dimen/dp_20"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50sp"
-                android:layout_width="@dimen/dp_300"
-                android:layout_height="@dimen/dp_20">
+                android:background="@color/white">
 
                 <Button
                     android:id="@+id/skip"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/dp_40"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/dp_110"
+                    android:gravity="center"
                     android:background="@color/white"
                     android:fontFamily="@font/calibri_regular"
-                    android:gravity="center"
                     android:includeFontPadding="true"
                     android:text="skip"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/dp_10"></Button>
-
-                <Button
-                    android:id="@+id/forgot"
-                    android:layout_width="121dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/dp_70"
-                    android:background="@color/white"
-                    android:fontFamily="@font/calibri_regular"
-                    android:gravity="center"
-                    android:includeFontPadding="true"
-                    android:text="Forgot id/pass"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dp_10">
+                    android:textSize="@dimen/dp_20">
 
                 </Button>
             </LinearLayout>

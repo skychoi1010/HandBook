@@ -46,7 +46,7 @@
 
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/txt_name"
+                android:id="@+id/txt_pass"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/drawable_item_selector"
