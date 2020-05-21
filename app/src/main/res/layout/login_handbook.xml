@@ -74,7 +74,8 @@ android:orientation="vertical">
                 android:includeFontPadding="true"
                 android:text="Create Account"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dp_15"
+                android:textSize="@dimen/dp_15">
+                </androidx.appcompat.widget.AppCompatTextView>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -108,9 +109,4 @@ android:orientation="vertical">
         </RelativeLayout>
 
     </LinearLayout>
-
-
-
-    </LinearLayout>
-
 </RelativeLayout>

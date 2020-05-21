@@ -65,7 +65,7 @@
                     android:textSize="@dimen/sp_15" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txt_pass"
+                    android:id="@+id/txt_email_id_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -110,7 +110,7 @@
                     android:textSize="@dimen/sp_15" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txt_pass"
+                    android:id="@+id/txt_pass_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
