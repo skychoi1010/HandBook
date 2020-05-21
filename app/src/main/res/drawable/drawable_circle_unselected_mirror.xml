@@ -91,7 +91,7 @@
     <!-- Background -->
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/white" /> <!--?android:colorPrimaryDark-->
+            <solid android:color="@color/colorAccent" /> <!--?android:colorPrimaryDark-->
         </shape>
     </item>
 
