@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_transparant"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_rounded_white_back"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_10">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_100"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/calibri_bold"
+                android:gravity="center"
+                android:padding="@dimen/dp_20"
+                android:text="Login"
+                android:textColor="@color/rdo_gender_select"
+                android:textSize="70sp" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:orientation="vertical"
+                android:background="@color/white">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:fontFamily="@font/calibri_bold"
+                    android:gravity="left"
+                    android:text="Email id/Phone number"
+                    android:textColor="@color/black_48"
+                    android:textSize="@dimen/sp_15" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txt_email_id_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:digits="@string/only_character"
+                    android:fontFamily="@font/calibri_regular"
+                    android:gravity="left"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapWords"
+                    android:maxLength="20"
+                    android:textColor="@color/rdo_gender_select"
+                    android:textSize="@dimen/sp_15"
+                    android:minWidth="@dimen/dp_200"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:orientation="vertical"
+                android:background="@color/white">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:fontFamily="@font/calibri_bold"
+                    android:gravity="center"
+                    android:text="Password"
+                    android:textColor="@color/black_48"
+                    android:textSize="@dimen/sp_15" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txt_pass_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:digits="@string/only_character"
+                    android:fontFamily="@font/calibri_regular"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapWords"
+                    android:maxLength="20"
+                    android:textColor="@color/rdo_gender_select"
+                    android:textSize="@dimen/sp_15"
+                    android:minWidth="@dimen/dp_200"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50sp"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:background="#F10255"
+                android:fontFamily="@font/calibri_regular"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="Login"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp_10"
+                android:minWidth="@dimen/dp_50">
+
+            </Button>
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:background="#167AA6"
+                android:fontFamily="@font/calibri_regular"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="Cancel"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp_10"
+                android:minWidth="@dimen/dp_50">
+
+            </Button>
+            <Button
+                android:id="@+id/forgot"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:background="@color/app_grey"
+                android:fontFamily="@font/calibri_regular"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="Forgot id/password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp_10"
+                android:minWidth="@dimen/dp_50">
+
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
