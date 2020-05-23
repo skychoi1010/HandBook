@@ -86,11 +86,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_150"
             android:layout_marginBottom="@dimen/dp_150">
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/dp_40"
-                android:layout_height="match_parent"
-                android:background="@drawable/do_more_stretching">
-            </androidx.appcompat.widget.AppCompatImageView>
+                android:layout_height="@dimen/dp_40"
+                android:background="@drawable/do_more_stretching"></androidx.appcompat.widget.AppCompatImageView>
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

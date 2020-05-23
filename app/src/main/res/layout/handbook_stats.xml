@@ -22,7 +22,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="@dimen/dp_40"
-                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginStart="@dimen/dp_40"
                 app:srcCompat="@drawable/flower" />
 
             <Switch
