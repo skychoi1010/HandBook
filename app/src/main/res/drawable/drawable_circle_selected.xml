@@ -91,7 +91,7 @@
     <!-- Background -->
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/rdo_gender_select" /> <!--?android:colorPrimaryDark-->
+            <solid android:color="#00A4B5" /> <!--?android:colorPrimaryDark-->
         </shape>
     </item>
 
