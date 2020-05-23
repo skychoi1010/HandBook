@@ -13,15 +13,14 @@
         android:layout_height="match_parent"
         android:background="@drawable/drawable_rounded_white_back"
         android:orientation="vertical"
-        android:padding="@dimen/dp_10">
+        android:padding="@dimen/dp_2">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
             android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_10"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -35,15 +34,16 @@
                 android:textColor="@color/rdo_gender_select"
                 android:textSize="45sp" />
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_2"
             android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_5"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -52,8 +52,9 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="vertical">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,20 +76,21 @@
                     android:imeOptions="actionDone"
                     android:inputType="textCapWords"
                     android:maxLength="20"
+                    android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
-                    android:textSize="@dimen/sp_15"
-                    android:minWidth="@dimen/dp_200"/>
+                    android:textSize="@dimen/sp_15" />
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_2"
             android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_5"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -97,8 +99,9 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="vertical">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,20 +123,21 @@
                     android:imeOptions="actionDone"
                     android:inputType="textCapWords"
                     android:maxLength="20"
+                    android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
-                    android:textSize="@dimen/sp_15"
-                    android:minWidth="@dimen/dp_200"/>
+                    android:textSize="@dimen/sp_15" />
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_2"
             android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_5"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -142,8 +146,9 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="vertical">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,31 +159,25 @@
                     android:textColor="@color/black_48"
                     android:textSize="@dimen/sp_15" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txt_pass_pass"
+                <EditText
+                    android:id="@+id/editText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
-                    android:fontFamily="@font/calibri_regular"
-                    android:gravity="center"
-                    android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
-                    android:maxLength="20"
-                    android:textColor="@color/rdo_gender_select"
-                    android:textSize="@dimen/sp_15"
-                    android:minWidth="@dimen/dp_200"/>
+                    android:ems="10"
+                    android:inputType="textPassword" />
+
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_2"
             android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_5"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -187,8 +186,9 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="vertical">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,40 +199,60 @@
                     android:textColor="@color/black_48"
                     android:textSize="@dimen/sp_15" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txt_pass_confirmpass"
+                <EditText
+                    android:id="@+id/editText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
-                    android:fontFamily="@font/calibri_regular"
-                    android:gravity="center"
-                    android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
-                    android:maxLength="20"
-                    android:textColor="@color/rdo_gender_select"
-                    android:textSize="@dimen/sp_15"
-                    android:minWidth="@dimen/dp_200"/>
+                    android:ems="10"
+                    android:inputType="textPassword" />
+
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation='horizontal'>
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="130dp"
+                    android:layout_height="@dimen/dp_60"
+                    android:background="@drawable/ic_male_normal"
+                    android:gravity="center"
+                    android:text="Male"
+                    android:textSize="@dimen/dp_15" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="130dp"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:background="@drawable/ic_female_normal"
+                    android:text="@string/str_female"
+                    android:textColor="@color/black_48"
+                    android:textSize="@dimen/dp_15" />
+            </RadioGroup>
+
             <Button
-                android:layout_marginTop="@dimen/dp_30"
                 android:id="@+id/createacc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_70"
+                android:background="@color/white"
                 android:fontFamily="@font/calibri_regular"
                 android:gravity="center"
                 android:includeFontPadding="true"
+                android:minWidth="@dimen/dp_50"
                 android:text="Create account"
-                android:textColor="@color/black"
-                android:textSize="@dimen/dp_20"
-                android:background="@color/white"
-                android:minWidth="@dimen/dp_50">
-            </Button>
+                android:textColor="#F10255"
+                android:textSize="@dimen/dp_20"></Button>
         </RelativeLayout>
     </LinearLayout>
+
 </RelativeLayout>

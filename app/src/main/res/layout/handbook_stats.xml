@@ -32,7 +32,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/dp_30"
                 android:gravity="center"
-                android:text="Flower/Data" />
+                android:text="Flower/Data"
+                android:textSize="@dimen/dp_15" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/dp_40"
@@ -93,13 +94,15 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="@string/str_weekly"
+            android:textColor="@color/black_48"
             android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="invisible"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textViews"
             android:layout_width="wrap_content"
@@ -108,13 +111,14 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="@string/str_daily"
+            android:textColor="@color/black_48"
             android:textSize="30sp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="visible"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView"
@@ -128,16 +132,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_400"
+        android:layout_width="358dp"
+        android:layout_height="406dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="-17dp">
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="@color/water_color">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="383dp"
-            android:layout_height="417dp"
+            android:layout_width="215dp"
+            android:layout_height="282dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
