@@ -49,39 +49,41 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:background="#EF0655"
-        android:text="Exercise on my own"
+        android:text="Exercise on my own\n 10points"
         android:textColor="@color/white"
         android:textSize="@dimen/dp_15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/note_color"
-        android:text="PLAY A GAME"
+        android:text="PLAY A GAME\n 50points"
         android:textColor="@color/white"
-        android:textSize="@dimen/dp_17"
+        android:textSize="@dimen/dp_15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.2" />
 
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="47dp"
-        android:layout_height="54dp"
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Snooze for next\n 20 minutes"
+        android:textColor="#B02747"
+        android:textSize="@dimen/dp_14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:srcCompat="@android:drawable/ic_menu_help" />
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintVertical_bias="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
