@@ -32,10 +32,10 @@ public class Screen_OnBoarding_Two extends MasterBaseFragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		item_view=inflater.inflate(R.layout.screen_onboarding_two, container, false);
+		item_view=inflater.inflate(R.layout.handbook_login_create, container, false);
 
-		FindViewById();
-		Body();
+		//FindViewById();
+		//Body();
 
 		return item_view;
 	}

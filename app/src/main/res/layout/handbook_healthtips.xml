@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/healthTips"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/water_color"
+        android:gravity="center"
+        android:text="@string/health_tips"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/healthTipsIMG"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="News"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/docsNearby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A2CACF"
+        android:gravity="center"
+        android:text="Doctors nearby"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/healthTipsIMG" />
+
+    <WebView
+        android:id="@+id/mapView"
+        android:layout_width="210dp"
+        android:layout_height="174dp">
+
+        <ImageView
+            android:id="@+id/doc1"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_x="-202dp"
+            android:layout_y="-2dp"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/drawable_button_blue" />
+
+        <ImageView
+            android:id="@+id/doc2"
+            android:layout_width="413dp"
+            android:layout_height="177dp"
+            android:layout_x="-202dp"
+            android:layout_y="37dp"
+            app:srcCompat="@drawable/drawable_button_blue"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    </WebView>
+
+</LinearLayout>

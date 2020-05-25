@@ -422,7 +422,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		menu_name.clear();
 		menu_name.add(new Menu(sh.get_string(R.string.str_home),true));
 		menu_name.add(new Menu(sh.get_string(R.string.str_drink_history),false));
-		menu_name.add(new Menu(sh.get_string(R.string.str_advance_settings),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_notification_settings),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_settings),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_privacy_policy),false));
@@ -440,7 +440,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				}
 				else if(position==2)
 				{
-					intent=new Intent(act,Screen_Reminder.class);
+					intent=new Intent(act,handbook_notifisettings.class);
 					startActivity(intent);
 				}
 				else if(position==3)

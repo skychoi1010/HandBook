@@ -15,7 +15,7 @@ import com.waterdiary.drinkreminder.Screen_OnBoarding_Two;
 
 public class OnBoardingPagerAdapter extends FragmentStatePagerAdapter
 {
-    Screen_OnBoarding_Two tab2Fragment;
+    //Screen_OnBoarding_Two tab2Fragment;
     Screen_OnBoarding_Three tab3Fragment;
     Screen_OnBoarding_Four tab4Fragment;
     Screen_OnBoarding_Five tab5Fragment;
@@ -28,7 +28,7 @@ public class OnBoardingPagerAdapter extends FragmentStatePagerAdapter
     public OnBoardingPagerAdapter(FragmentManager fm, Context context)
     {
         super(fm);
-        tab2Fragment = new Screen_OnBoarding_Two();
+        //tab2Fragment = new Screen_OnBoarding_Two();
         tab3Fragment = new Screen_OnBoarding_Three();
         tab4Fragment = new Screen_OnBoarding_Four();
         tab5Fragment = new Screen_OnBoarding_Five();
@@ -55,24 +55,24 @@ public class OnBoardingPagerAdapter extends FragmentStatePagerAdapter
         }*/
         else if (position == 2)
         {
-            return tab4Fragment;
-        }
-        else if (position == 3)
-        {
             return tab6Fragment;
         }
-        else if (position == 4)
+        else if (position == 3)
         {
             return tab5Fragment;
         }
         else
         {
-            return tab2Fragment;
+            return tab4Fragment;
         }
+        /*else
+        {
+            return tab2Fragment;
+        }*/
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 }

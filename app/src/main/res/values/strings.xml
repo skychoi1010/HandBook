@@ -10,6 +10,8 @@
 
     <string name="str_no_internet">The Internet connection appears to be offline.</string>
 
+    <string name="str_notification_settings">Notification Settings</string>
+
     <!-- for testing -->
 
     <string name="admob_app_id" translatable="false">ca-app-pub-2337353105916756~2279901954</string>
@@ -28,7 +30,7 @@
     <string name="str_hindi">Hindi</string>
 
     <!-- onBoarding -->
-
+    <string name="str_handbook">Handbook</string>
     <string name="str_choose_language">Choose Language</string>
     <string name="str_back">Back</string>
     <string name="str_next">Next</string>
@@ -322,5 +324,6 @@
     <string name="faq_answer_7">You can click on the change container icon on the top left of the home screen, then tap on your choice of container. You can also add your customized drink.</string>
     <string name="faq_answer_8">You can click on the menu and select Drink History then view your drink history.</string>
     <string name="faq_answer_9">You can click on the menu and select Drink Report option then view using following 3 options:\n1. Weekly Report\n2. Monthly Report\n3. Yearly Report</string>
+    <string name="health_tips">Health Tips</string>
 
 </resources>
