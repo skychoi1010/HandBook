@@ -845,7 +845,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				});
 
 		lbl_next_reminder=findViewById(R.id.lbl_next_reminder);
-		//next_reminder_block=findViewById(R.id.next_reminder_block);
+		next_reminder_block=findViewById(R.id.next_reminder_block);
 
 		add_water=findViewById(R.id.add_water);
 
@@ -899,7 +899,14 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		});
 
+		img_selected_container.setVisibility(View.INVISIBLE);
 		add_water.setVisibility(View.INVISIBLE);
+		next_reminder_block.setVisibility(View.INVISIBLE);
+		lbl_next_reminder.setVisibility(View.INVISIBLE);
+		LinearLayout goal = findViewById(R.id.goal);
+		goal.setVisibility(View.INVISIBLE);
+		LinearLayout consumed = findViewById(R.id.consumed);
+		consumed.setVisibility(View.INVISIBLE);
 		/*add_water.setOnClickListener(new View.OnClickListener()
         {
 			@Override

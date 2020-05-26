@@ -59,13 +59,6 @@
                                 android:layout_marginBottom="@dimen/dp_10"
                                 android:background="@drawable/drawable_button_background">
 
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/ic_alarm"
-                                    android:layout_marginStart="@dimen/dp_10"
-                                    android:layout_centerInParent="true"/>
-
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/lbl_next_reminder"
                                     android:layout_width="wrap_content"
@@ -118,13 +111,21 @@
 
                                             <ImageView
                                                 android:id="@+id/img_selected_container"
-                                                android:layout_width="@dimen/dp_35"
-                                                android:layout_height="@dimen/dp_35"
+                                                android:layout_width="22dp"
+                                                android:layout_height="31dp"
                                                 android:layout_gravity="center_horizontal"
                                                 android:adjustViewBounds="true"
                                                 android:scaleType="fitCenter"
                                                 android:src="@drawable/ic_700_ml"
                                                 app:srcCompat="@drawable/ic_menu_drink_water" />
+
+                                            <ImageView
+                                                android:id="@+id/img_home"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="38dp"
+                                                android:layout_alignParentBottom="true"
+                                                android:layout_centerVertical="false"
+                                                CircleProgressView:srcCompat="@drawable/ic_menu_drink_water" />
 
                                         </RelativeLayout>
 

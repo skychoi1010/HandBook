@@ -114,8 +114,8 @@ public class ContainerAdapterNew extends RecyclerView.Adapter<ContainerAdapterNe
 
 	public Integer getImage(int pos)
 	{
-		Integer drawable=R.drawable.ic_custom_ml;
-
+		Integer drawable=R.drawable.ic_menu_drink_water;
+		/*
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")) {
 
 			if (Double.parseDouble(containerArrayList.get(pos).getContainerValue()) == 50)
@@ -169,7 +169,7 @@ public class ContainerAdapterNew extends RecyclerView.Adapter<ContainerAdapterNe
 				drawable = R.drawable.ic_900_ml;
 			else if (Double.parseDouble(containerArrayList.get(pos).getContainerValueOZ()) == 34)
 				drawable = R.drawable.ic_1000_ml;
-		}
+		}*/
 
 		return drawable;
 	}
