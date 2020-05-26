@@ -193,6 +193,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		FindViewById();
 
+		//next_reminder_block.setVisibility(View.INVISIBLE);
 		ringtone = RingtoneManager.getRingtone(mContext, Uri.parse("android.resource://" + mContext.getPackageName() + "/" + R.raw.fill_water_sound));
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
 			ringtone.setLooping(false);
@@ -364,11 +365,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		Body();
 
-		loadAds();
+		//loadAds();
 
-		getAllReminderData();
+		//getAllReminderData();
 
-		fetchNextReminder();
+		//fetchNextReminder();
 
 	}
 
@@ -389,7 +390,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			public void onClick(View v) {
 				filter_cal.setTimeInMillis(today_cal.getTimeInMillis());
 				lbl_toolbar_title.setText(sh.get_string(R.string.str_today));
-				setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
+				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 			}
 		});
 
@@ -426,7 +427,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		menu_name.add(new Menu(sh.get_string(R.string.str_do_more_stretching),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_health_tips),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_store),false));
-		menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
+		//menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_privacy_policy),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_tell_a_friend),false));
 
@@ -455,18 +456,18 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					intent=new Intent(act,handbook_store.class);
 					startActivity(intent);
 				}
-			   else if(position==5)
+			   /*else if(position==5)
 			   {
 				   intent=new Intent(act,Screen_FAQ.class);
 				   startActivity(intent);
-			   }
-				else if(position==6)
+			   }*/
+				else if(position==5)
 				{
 					Intent i = new Intent(Intent.ACTION_VIEW);
 					i.setData(Uri.parse(URLFactory.PRIVACY_POLICY_ULR));
 					startActivity(i);
 				}
-				else if(position==7)
+				else if(position==6)
 				{
 					String str=sh.get_string(R.string.app_share_txt).replace("#1",URLFactory.APP_SHARE_URL);
 
@@ -556,7 +557,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				else
 					lbl_toolbar_title.setText(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 
-				setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
+				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 			}
 		});
 
@@ -577,13 +578,13 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				else
 					lbl_toolbar_title.setText(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 
-				setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
+				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 
 			}
 		});
 
 	}
-
+/*
 	public void loadAds()
 	{
 		// Initialize the Mobile Ads SDK
@@ -718,11 +719,10 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		});
     }
+*/
 
 
-
-
-
+/*
 	public void getAllReminderData()
 	{
 		List<NextReminderModel> reminder_data=new ArrayList<>();
@@ -762,8 +762,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				break;
 			}
 		}
+*/
 
-		//next_reminder_block.setVisibility(View.INVISIBLE);
 /*
 		if(reminder_data.size()>0) {
 
@@ -774,8 +774,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		}
 		else
 			next_reminder_block.setVisibility(View.INVISIBLE);*/
-	}
-
+//	}
+/*
 	public long getMillisecond(String givenDateString)
 	{
 		long timeInMilliseconds=0;
@@ -808,7 +808,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		handlerReminder = new Handler();
 		handlerReminder.postDelayed(runnableReminder, 1000);
 	}
-
+*/
 
 
 
@@ -877,12 +877,14 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			//ah.Show_Alert_Dialog(""+arr_data.get(k).get("ContainerValueOZ"));
 		}
 
-		count_today_drink(false);
+		//count_today_drink(false);
 
 		selected_container_block.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				openChangeContainerPicker();
+				//openChangeContainerPicker();
+				intent=new Intent(act,Screen_Dashboard.class);
+				startActivity(intent);
 			}
 		});
 
@@ -897,7 +899,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		});
 
-		add_water.setOnClickListener(new View.OnClickListener()
+		add_water.setVisibility(View.INVISIBLE);
+		/*add_water.setOnClickListener(new View.OnClickListener()
         {
 			@Override
 			public void onClick(View view)
@@ -952,8 +955,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
                     }
 				}
 			}
-		});
-
+		});*/
+/*
 		load_all_container();
 
 		String unit=ph.getString(URLFactory.WATER_UNIT);
@@ -1014,16 +1017,16 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
         });
 	}
+*/
 
-
-	public void execute_add_water()
+/*	public void execute_add_water()
 	{
-
+*/
 		/*if(!btnclick)
 			return;
 
 		btnclick=false;*/
-
+/*
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")
 				&& drink_water>8000)
 		{
@@ -1095,11 +1098,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		initialValues.put("ContainerValueOZ", "" + containerArrayList.get(selected_pos).getContainerValueOZ());
 		//initialValues.put("ContainerMeasure", "ml");
 
-
+*/
 		/*initialValues.put("DrinkDate", "" + dth.getCurrentDate("dd-MM-yyyy"));
 		initialValues.put("DrinkTime", "" + dth.getCurrentTime(true));
 		initialValues.put("DrinkDateTime", "" + dth.getCurrentDate("dd-MM-yyyy HH:mm:ss"));*/
-
+/*
 		initialValues.put("DrinkDate", "" + dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 		initialValues.put("DrinkTime", "" + dth.getCurrentTime(true));
 		initialValues.put("DrinkDateTime", "" + dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT)
@@ -1128,9 +1131,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
 		act.sendBroadcast(intent);
 	}
-
-
-	public void load_all_container()
+*/
+/*	public void load_all_container()
 	{
 		containerArrayList.clear();
 
@@ -1186,26 +1188,26 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	{
 		return  str.replace(",",".");
 	}
-
-	public void callDialog()
+*/
+/*	public void callDialog()
 	{
 		if(old_drink_water<URLFactory.DAILY_WATER_VALUE) {
 			if (drink_water >= URLFactory.DAILY_WATER_VALUE) {
 				//ah.customAlert(sh.get_string(R.string.str_daily_goal_reached));
 				showDailyGoalReachedDialog();
 			}
-			
+*/
 			/*else
 				calculateAllDrink();*/
 		}
 		
 		/*else
 			calculateAllDrink();*/
-
+/*
 		old_drink_water=drink_water;
 	}
-
-	public void refresh_bottle(boolean isFromCurrentProgress,boolean isRegularAnimation)
+*/
+/*	public void refresh_bottle(boolean isFromCurrentProgress,boolean isRegularAnimation)
 	{
 		final long animationDuration=isRegularAnimation?50:5;
 
@@ -1216,11 +1218,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		cp=progress_bottle_height;
 		np=Math.round((drink_water*max_bottle_height)/URLFactory.DAILY_WATER_VALUE);
-
+*/
 		/*if(np>max_bottle_height)
 			np=max_bottle_height;*/
 
-		if(cp<=np && isFromCurrentProgress)
+/*		if(cp<=np && isFromCurrentProgress)
 		{
 			animationView.setVisibility(View.VISIBLE);
 			runnable = new Runnable() {
@@ -1295,8 +1297,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		else
 			animationView.setVisibility(View.GONE);
 	}
-
-	public void count_specific_day_drink(String custom_date)
+*/
+/*	public void count_specific_day_drink(String custom_date)
 	{
 		ArrayList<HashMap<String, String>>  arr_dataO=dh.getdata("tbl_drink_details","DrinkDate ='"+custom_date+"'");
 		old_drink_water=0;
@@ -1354,12 +1356,12 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		refresh_bottle(false,false);
 	}
-
+*/
 	public Activity getActivity()
 	{
 		return act;
 	}
-
+/*
 	public void setCustomDate(String date) {
 		count_specific_day_drink(date);
 	}
@@ -1481,14 +1483,14 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					}
 
 					Log.d("HeightWeightHelper",""+tml+" @@@ "+tfloz);
-
+*/
 					/*ah.Show_Alert_Dialog(""+tml+" @@@ "+tfloz
 							+"\n\n"+Math.round(tml)+" @@@ "+Math.round(tfloz));*/
 
 
 					//dh.TOTAL_ROW("tbl_container_details","ContainerValue="+)
 
-
+/*
 					Cursor c = Constant.SDB.rawQuery("SELECT MAX(ContainerID) FROM tbl_container_details", null);
 					int nextContainerID=0;
 
@@ -1571,9 +1573,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		dialog.show();
 	}
-
+*/
 	//=============================
-
+/*
 	public Integer getImage(String val)
 	{
 		Integer drawable=R.drawable.ic_custom_ml;
@@ -1635,7 +1637,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		return drawable;
 	}
-
+*/
 
 	//=============================
 

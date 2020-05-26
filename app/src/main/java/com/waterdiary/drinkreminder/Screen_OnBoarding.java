@@ -40,7 +40,7 @@ public class Screen_OnBoarding extends MasterBaseAppCompatActivity
     AppCompatTextView lbl_next;
 
     int current_page_idx=0;
-    int max_page=4;
+    int max_page=5;
 
     private static final int ALL_PERMISSION = 3;
 
@@ -216,7 +216,7 @@ public class Screen_OnBoarding extends MasterBaseAppCompatActivity
         });
     }
 
-    public boolean isNextDayEnd()
+    /*public boolean isNextDayEnd()
     {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm a");
 
@@ -361,7 +361,7 @@ public class Screen_OnBoarding extends MasterBaseAppCompatActivity
             dh.REMOVE("tbl_alarm_sub_details");
         }
     }
-
+*/
     public void checkStoragePermissions()
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -399,7 +399,7 @@ public class Screen_OnBoarding extends MasterBaseAppCompatActivity
     {
         ph.savePreferences(URLFactory.HIDE_WELCOME_SCREEN,true);
 
-        setAlarm();
+        //setAlarm();
 
         intent=new Intent(act,handbook_start.class);
         startActivity(intent);

@@ -35,8 +35,7 @@
 
         <activity
             android:name="com.waterdiary.drinkreminder.Screen_Splash"
-            android:theme="@style/AppThemeSplash"
-            android:screenOrientation="portrait">
+            android:theme="@style/AppThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -48,6 +47,9 @@
         <activity android:name="com.waterdiary.drinkreminder.handbook_login" />
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_createAccount" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_healthtips" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_store" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_stretching" />
 
         <activity android:name="com.waterdiary.drinkreminder.Screen_Dashboard" />
 
