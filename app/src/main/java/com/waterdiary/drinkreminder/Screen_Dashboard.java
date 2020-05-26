@@ -442,26 +442,31 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				}
 				else if(position==2)
 				{
-					intent=new Intent(act,handbook_notifisettings.class);
+					intent=new Intent(act,handbook_stretching.class);
 					startActivity(intent);
 				}
 				else if(position==3)
 				{
-					intent=new Intent(act,Screen_Settings.class);
+					intent=new Intent(act,handbook_healthtips.class);
 					startActivity(intent);
 				}
 				else if(position==4)
 				{
-					intent=new Intent(act,Screen_FAQ.class);
+					intent=new Intent(act,handbook_store.class);
 					startActivity(intent);
 				}
-				else if(position==5)
+			   else if(position==5)
+			   {
+				   intent=new Intent(act,Screen_FAQ.class);
+				   startActivity(intent);
+			   }
+				else if(position==6)
 				{
 					Intent i = new Intent(Intent.ACTION_VIEW);
 					i.setData(Uri.parse(URLFactory.PRIVACY_POLICY_ULR));
 					startActivity(i);
 				}
-				else if(position==6)
+				else if(position==7)
 				{
 					String str=sh.get_string(R.string.app_share_txt).replace("#1",URLFactory.APP_SHARE_URL);
 

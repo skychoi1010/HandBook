@@ -33,7 +33,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        /*<activity
+        <activity
             android:name="com.waterdiary.drinkreminder.Screen_Splash"
             android:theme="@style/AppThemeSplash"
             android:screenOrientation="portrait">
@@ -41,7 +41,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>*/
+        </activity>
 
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_start" />
