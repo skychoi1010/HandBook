@@ -23,10 +23,11 @@ public class PostureWorker extends Worker {
         return Result.success();
     }
 
-    // Put classifer
+    // TODO: Put classifer
     private void postureClassfier(){
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
 
         }
     }
