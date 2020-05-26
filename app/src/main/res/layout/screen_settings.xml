@@ -59,12 +59,12 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:includeFontPadding="true"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/str_my_profile"
-                    android:textSize="@dimen/dp_16"
+                    android:fontFamily="@font/calibri_bold"
+                    android:includeFontPadding="true"
+                    android:text="Button deleted"
                     android:textColor="@color/rdo_gender_select"
-                    android:fontFamily="@font/calibri_bold"/>
+                    android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="fill_parent"

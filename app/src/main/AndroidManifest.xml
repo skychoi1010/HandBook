@@ -33,7 +33,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity
+        /*<activity
             android:name="com.waterdiary.drinkreminder.Screen_Splash"
             android:theme="@style/AppThemeSplash"
             android:screenOrientation="portrait">
@@ -41,28 +41,34 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>*/
 
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_Dashboard"
-            android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_start" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_login" />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_OnBoarding" android:screenOrientation="portrait"
+        <activity android:name="com.waterdiary.drinkreminder.handbook_createAccount" />
+
+        <activity android:name="com.waterdiary.drinkreminder.Screen_Dashboard" />
+
+        <activity android:name="com.waterdiary.drinkreminder.Screen_OnBoarding"
             android:windowSoftInputMode="adjustNothing"/>
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_History" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.Screen_History" />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_Settings" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.Screen_Settings" />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_Report" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.Screen_Report" />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_Reminder" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.Screen_Reminder" />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_FAQ" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_notifisettings"  />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_Backup_Restore" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.Screen_FAQ" />
 
-        <activity android:name="com.waterdiary.drinkreminder.Screen_Profile" android:screenOrientation="portrait" />
+        <activity android:name="com.waterdiary.drinkreminder.Screen_Backup_Restore" />
+
+        <activity android:name="com.waterdiary.drinkreminder.Screen_Profile" />
 
 
 

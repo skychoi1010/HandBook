@@ -46,7 +46,7 @@ public class Screen_Settings extends MasterBaseActivity
 		lbl_toolbar_title=findViewById(R.id.lbl_toolbar_title);
 
 		backup_restore_block=findViewById(R.id.backup_restore_block);
-		weight_block=findViewById(R.id.weight_block);
+		//weight_block=findViewById(R.id.weight_block);
 
 		switch_notification=findViewById(R.id.switch_notification);
 		switch_sound=findViewById(R.id.switch_sound);
@@ -74,13 +74,13 @@ public class Screen_Settings extends MasterBaseActivity
 			}
 		});
 
-		weight_block.setOnClickListener(new View.OnClickListener() {
+		/*weight_block.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				intent=new Intent(act, Screen_Profile.class);
 				startActivity(intent);
 			}
-		});
+		});*/
 
 		switch_notification.setChecked(ph.getBoolean(URLFactory.DISABLE_NOTIFICATION));
 

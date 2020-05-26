@@ -11,6 +11,9 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
+<<<<<<< HEAD
+/build
+=======
 /build
 =======
 # Built application files
@@ -99,3 +102,4 @@ lint/outputs/
 lint/tmp/
 # lint/reports/
 >>>>>>> 82d6fedde5c9d2104d89f5ba63df76cf1c4edbc0
+>>>>>>> 15839e330d19c0c9ce79f7d15425db673e8cc75f

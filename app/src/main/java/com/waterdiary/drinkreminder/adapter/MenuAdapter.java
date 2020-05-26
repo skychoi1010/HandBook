@@ -106,7 +106,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>
 				break;
 
 			case 2:
-				drawable=R.drawable.ic_menu_report;
+				drawable=R.drawable.ic_menu_settings;
 				break;
 
 			case 3:

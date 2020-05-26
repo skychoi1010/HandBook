@@ -21,21 +21,21 @@ public class Screen_OnBoarding_Two extends MasterBaseFragment
 
 	//RadioButton rdo_male,rdo_female;
 
-	RelativeLayout male_block,female_block;
+	/*RelativeLayout male_block,female_block;
 	ImageView img_male,img_female;
-	AppCompatTextView lbl_male,lbl_female;
+	AppCompatTextView lbl_male,lbl_female;*/
 
-	boolean isMaleGender=true;
+	//boolean isMaleGender=true;
 
 	AppCompatEditText txt_user_name;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		item_view=inflater.inflate(R.layout.screen_onboarding_two, container, false);
+		item_view=inflater.inflate(R.layout.handbook_login_create, container, false);
 
-		FindViewById();
-		Body();
+		//FindViewById();
+		//Body();
 
 		return item_view;
 	}
@@ -57,20 +57,20 @@ public class Screen_OnBoarding_Two extends MasterBaseFragment
 		//rdo_male=item_view.findViewById(R.id.rdo_male);
 		//rdo_female=item_view.findViewById(R.id.rdo_female);
 
-		male_block=item_view.findViewById(R.id.male_block);
+		/*male_block=item_view.findViewById(R.id.male_block);
 		img_male=item_view.findViewById(R.id.img_male);
 		lbl_male=item_view.findViewById(R.id.lbl_male);
 
 		female_block=item_view.findViewById(R.id.female_block);
 		img_female=item_view.findViewById(R.id.img_female);
-		lbl_female=item_view.findViewById(R.id.lbl_female);
+		lbl_female=item_view.findViewById(R.id.lbl_female);*/
 
 		txt_user_name=item_view.findViewById(R.id.txt_user_name);
 	}
 
 	private void Body()
 	{
-		male_block.setOnClickListener(new View.OnClickListener() {
+		/*male_block.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				setGender(true);
@@ -82,10 +82,10 @@ public class Screen_OnBoarding_Two extends MasterBaseFragment
 			public void onClick(View view) {
 				setGender(false);
 			}
-		});
+		});*/
 
 		txt_user_name.setText(ph.getString(URLFactory.USER_NAME));
-		setGender(!ph.getBoolean(URLFactory.USER_GENDER));
+		//setGender(!ph.getBoolean(URLFactory.USER_GENDER));
 
 		txt_user_name.addTextChangedListener(new TextWatcher() {
 			@Override
@@ -125,7 +125,7 @@ public class Screen_OnBoarding_Two extends MasterBaseFragment
 		});*/
 	}
 
-	public void setGender(boolean isMale)
+	/*public void setGender(boolean isMale)
 	{
 		ph.savePreferences(URLFactory.SET_MANUALLY_GOAL,false);
 
@@ -162,6 +162,6 @@ public class Screen_OnBoarding_Two extends MasterBaseFragment
 			img_female.setImageResource(R.drawable.ic_female_selected);
 			//lbl_female.setTextColor(mContext.getResources().getColor(R.color.rdo_gender_select_text_color));
 		}
-	}
+	}*/
 
 }
