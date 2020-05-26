@@ -421,9 +421,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		menu_name.clear();
 		menu_name.add(new Menu(sh.get_string(R.string.str_home),true));
-		menu_name.add(new Menu(sh.get_string(R.string.str_drink_history),false));
+		//menu_name.add(new Menu(sh.get_string(R.string.str_drink_history),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_notification_settings),false));
-		menu_name.add(new Menu(sh.get_string(R.string.str_settings),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_do_more_stretching),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_health_tips),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_store),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_privacy_policy),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_tell_a_friend),false));
@@ -435,7 +437,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
                if(position==1)
 				{
-					intent=new Intent(act,Screen_History.class);
+					intent=new Intent(act,handbook_notifisettings.class);
 					startActivity(intent);
 				}
 				else if(position==2)
