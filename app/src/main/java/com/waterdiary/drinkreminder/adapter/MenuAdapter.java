@@ -97,24 +97,21 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>
 
 		switch (pos)
 		{
-			case 0:
-				drawable=R.drawable.ic_menu_drink_water;
-				break;
 
 			case 1:
-				drawable=R.drawable.ic_menu_history;
+				drawable=R.drawable.ic_menu_settings;
 				break;
 
 			case 2:
-				drawable=R.drawable.ic_menu_settings;
+				drawable=R.drawable.ic_menu_rate;
 				break;
 
 			case 3:
-				drawable=R.drawable.ic_menu_settings;
+				drawable=R.drawable.ic_menu_faq;
 				break;
 
 			case 4:
-				drawable=R.drawable.ic_menu_faq;
+				drawable=R.drawable.ic_menu_achievements;
 				break;
 
 			case 5:
@@ -123,10 +120,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>
 
 			case 6:
 				drawable=R.drawable.ic_menu_share;
-				break;
-
-			case 7:
-				drawable=R.drawable.ic_menu_go_premium;
 				break;
 
 			default:

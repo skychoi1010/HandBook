@@ -71,7 +71,7 @@ public class Screen_Splash extends MasterBaseAppCompatActivity
                     ph.savePreferences(URLFactory.PERSON_WEIGHT_UNIT, true);
                     ph.savePreferences(URLFactory.PERSON_WEIGHT, "80");
                     ph.savePreferences(URLFactory.USER_NAME, "");
-                    intent = new Intent(Screen_Splash.this, handbook_start.class);
+                    intent = new Intent(Screen_Splash.this, Screen_OnBoarding.class);
                 }
 
                 startActivity(intent);
