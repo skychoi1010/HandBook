@@ -74,6 +74,7 @@ dependencies {
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
+    implementation 'com.google.firebase:firebase-database:19.3.0'
 
 }
 
