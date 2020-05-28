@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,8 +20,8 @@ import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 
 public class handbook_createAccount extends MasterBaseActivity {
     FirebaseAuth mAuth;
-    EditText email;
-    EditText password;
+    AppCompatEditText email;
+    AppCompatEditText password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +34,8 @@ public class handbook_createAccount extends MasterBaseActivity {
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email_str = email.getText().toString().trim();
-                String pwd_str = password.getText().toString().trim();
+                String email_str = email.getText().toString();
+                String pwd_str = password.getText().toString();
 
                 mAuth.createUserWithEmailAndPassword(email_str, pwd_str)
                         .addOnCompleteListener(handbook_createAccount.this, new OnCompleteListener<AuthResult>() {

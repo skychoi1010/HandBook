@@ -68,12 +68,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
                     android:inputType="text"
-                    android:maxLength="20"
                     android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
                     android:textSize="@dimen/sp_15" />
@@ -114,12 +112,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
                     android:inputType="textEmailAddress"
-                    android:maxLength="20"
                     android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
                     android:textSize="@dimen/sp_15" />
@@ -154,7 +150,7 @@
                     android:textColor="@color/black_48"
                     android:textSize="@dimen/sp_15" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

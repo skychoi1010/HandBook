@@ -59,7 +59,7 @@
                     android:layout_gravity="left"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="left"
-                    android:text="Email id/Phone number"
+                    android:text="Email id"
                     android:textColor="@color/black_48"
                     android:textSize="@dimen/sp_15" />
 
@@ -68,12 +68,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
-                    android:maxLength="20"
+                    android:inputType="textEmailAddress"
                     android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
                     android:textSize="@dimen/sp_15" />
@@ -113,12 +111,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
-                    android:fontFamily="@font/calibri_regular"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
-                    android:maxLength="20"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/calibri_regular"
                     android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
                     android:textSize="@dimen/sp_15" />
