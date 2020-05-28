@@ -72,7 +72,7 @@
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
+                    android:inputType="text"
                     android:maxLength="20"
                     android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
@@ -104,12 +104,13 @@
                     android:layout_gravity="left"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="left"
-                    android:text="Email id/Phone number)"
+                    android:inputType="textEmailAddress"
+                    android:text="Email id"
                     android:textColor="@color/black_48"
                     android:textSize="@dimen/sp_15" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txt_email"
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -117,7 +118,7 @@
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
+                    android:inputType="textEmailAddress"
                     android:maxLength="20"
                     android:minWidth="@dimen/dp_200"
                     android:textColor="@color/rdo_gender_select"
@@ -154,7 +155,7 @@
                     android:textSize="@dimen/sp_15" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
