@@ -220,9 +220,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					}
 					else
 					{
-						Intent intent2 = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+						Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
 						intent.setData(Uri.parse("package:" + packageName));
-						startActivity(intent2);
+						startActivity(intent);
 					}
 				}
 				/*else
