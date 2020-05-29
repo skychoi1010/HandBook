@@ -50,9 +50,9 @@
         <activity android:name="com.waterdiary.drinkreminder.handbook_healthtips" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_store" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_stretching" />
-
+        <activity android:name="com.waterdiary.drinkreminder.handbook_balcheck" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_Dashboard" />
-
+        <activity android:name="com.waterdiary.drinkreminder.handbook_navigation" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_OnBoarding"
             android:windowSoftInputMode="adjustNothing"/>
 

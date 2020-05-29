@@ -130,7 +130,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 	BottomSheetDialog bottomSheetDialog;
 
-    //======================
+	//======================
 
 	AppCompatTextView lbl_total_goal,lbl_total_drunk;
 
@@ -436,7 +436,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			public void onClickSelect(Menu menu, int position) {
 				mDrawerLayout.closeDrawer(Gravity.LEFT);
 
-               if(position==1)
+				if(position==1)
 				{
 					intent=new Intent(act,handbook_notifisettings.class);
 					startActivity(intent);
@@ -510,16 +510,12 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		/*open_profile.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
 				try {
 					if (mDrawerLayout.isDrawerOpen(Gravity.LEFT))
 						mDrawerLayout.closeDrawer(Gravity.LEFT);
 				}
 				catch(Exception e){}
-
 				startActivity(new Intent(act,Screen_Profile.class));
-
-
 			}
 		});*/
 
@@ -589,8 +585,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	{
 		// Initialize the Mobile Ads SDK
 		MobileAds.initialize(act,getString(R.string.admob_app_id));
-
-
 		mAdView = findViewById(R.id.adView);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		mAdView.loadAd(adRequest);
@@ -600,36 +594,30 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				// Code to be executed when an ad finishes loading.
 				//ah.customAlert("onAdLoaded");
 			}
-
 			@Override
 			public void onAdFailedToLoad(int errorCode) {
 				// Code to be executed when an ad request fails.
 				//ah.customAlert("onAdFailedToLoad "+errorCode);
 			}
-
 			@Override
 			public void onAdOpened() {
 				// Code to be executed when an ad opens an overlay that
 				// covers the screen.
 			}
-
 			@Override
 			public void onAdClicked() {
 				// Code to be executed when the user clicks on an ad.
 			}
-
 			@Override
 			public void onAdLeftApplication() {
 				// Code to be executed when the user has left the app.
 			}
-
 			@Override
 			public void onAdClosed() {
 				// Code to be executed when the user is about to return
 				// to the app after tapping on an ad.
 			}
 		});
-
 		mInterstitialAd = new InterstitialAd(act);
         mInterstitialAd.setAdUnitId(sh.get_string(R.string.admob_interstitial_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
@@ -638,28 +626,23 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
             public void onAdLoaded() {
                 //mInterstitialAd.show();
             }
-
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 // Code to be executed when an ad request fails.
                 //ah.customAlert("onAdFailedToLoad "+errorCode);
             }
-
             @Override
             public void onAdOpened() {
                 // Code to be executed when the ad is displayed.
             }
-
             @Override
             public void onAdClicked() {
                 // Code to be executed when the user clicks on an ad.
             }
-
             @Override
             public void onAdLeftApplication() {
                 // Code to be executed when the user has left the app.
             }
-
             @Override
             public void onAdClosed() {
                 // Code to be executed when the interstitial ad is closed.
@@ -668,27 +651,20 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
-
 		rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(act);
 		rewardedVideoAd.loadAd(sh.get_string(R.string.admob_rewarded_video_id),
 				new AdRequest.Builder().build());
-
 		rewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
 			@Override
 			public void onRewardedVideoAdLoaded() {
 				//rewardedVideoAd.show();
 			}
-
 			@Override
 			public void onRewardedVideoAdOpened() {
-
 			}
-
 			@Override
 			public void onRewardedVideoStarted() {
-
 			}
-
 			@Override
 			public void onRewardedVideoAdClosed() {
 				if(showWholeAd)
@@ -698,24 +674,18 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				}
 				else
 					btnclick=true;
-
 				rewardedVideoAd.loadAd(sh.get_string(R.string.admob_rewarded_video_id),
 						new AdRequest.Builder().build());
 			}
-
 			@Override
 			public void onRewarded(RewardItem rewardItem) {
 				showWholeAd=true;
 			}
-
 			@Override
 			public void onRewardedVideoAdLeftApplication() {
-
 			}
-
 			@Override
 			public void onRewardedVideoAdFailedToLoad(int i) {
-
 			}
 		});
     }
@@ -726,9 +696,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	public void getAllReminderData()
 	{
 		List<NextReminderModel> reminder_data=new ArrayList<>();
-
 		ArrayList<HashMap<String,String>> arr_data = dh.getdata("tbl_alarm_details");
-
 		for(int k=0;k<arr_data.size();k++)
 		{
 			if(arr_data.get(k).get("AlarmType").equalsIgnoreCase("R"))
@@ -750,7 +718,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				}
 			}
 		}
-
 		Date mDate = new Date();
 		Collections.sort(reminder_data);
 		int tmp_pos=0;
@@ -766,10 +733,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 /*
 		if(reminder_data.size()>0) {
-
 			//Locale locale = Resources.getSystem().getConfiguration().locale;
 			//ah.Show_Alert_Dialog(""+locale.getDisplayLanguage());
-
 			lbl_next_reminder.setText(sh.get_string(R.string.str_next_reminder).replace("$1", reminder_data.get(tmp_pos).getTime()));
 		}
 		else
@@ -779,9 +744,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	public long getMillisecond(String givenDateString)
 	{
 		long timeInMilliseconds=0;
-
 		givenDateString=dth.getFormatDate("yyyy-MM-dd")+" "+givenDateString;
-
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm a",Locale.US);
 		try {
 			Date mDate = sdf.parse(givenDateString);
@@ -791,16 +754,13 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			e.printStackTrace();
 			ah.Show_Alert_Dialog(e.getMessage());
 		}
-
 		return timeInMilliseconds;
 	}
-
 	public void fetchNextReminder()
 	{
 		runnableReminder = new Runnable() {
 			@Override
 			public void run() {
-
 				getAllReminderData();
 				handlerReminder.postDelayed(runnableReminder, 1000);
 			}
@@ -912,7 +872,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			@Override
 			public void onClick(View view)
             {
-
 				if(containerArrayList.size()>0)
 				{
 					if(!dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT)
@@ -920,14 +879,10 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					{
 						return;
 					}
-
                     if(!btnclick)
                         return;
-
                     btnclick=false;
-
                     Random random=new Random();
-
                     if(random.nextBoolean())
                     {
                         URLFactory.RELOAD_DASHBOARD = false;
@@ -965,9 +920,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		});*/
 /*
 		load_all_container();
-
 		String unit=ph.getString(URLFactory.WATER_UNIT);
-
 		if(unit.equalsIgnoreCase("ml"))
 		{
 			container_name.setText(""+containerArrayList.get(selected_pos).getContainerValue()+" "+unit);
@@ -983,28 +936,19 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			else
 				Glide.with(mContext).load(getImage(containerArrayList.get(selected_pos).getContainerValueOZ())).into(img_selected_container);
 		}
-
 		adapter = new ContainerAdapterNew(act, containerArrayList, new ContainerAdapterNew.CallBack() {
 			@Override
 			public void onClickSelect(Container menu, int position) {
-
 				bottomSheetDialog.dismiss();
-
 				selected_pos=position;
-
 				ph.savePreferences(URLFactory.SELECTED_CONTAINER,Integer.parseInt(menu.getContainerId()));
-
 				for(int k=0;k<containerArrayList.size();k++)
 				{
 					containerArrayList.get(k).isSelected(false);
 				}
-
 				containerArrayList.get(position).isSelected(true);
-
 				adapter.notifyDataSetChanged();
-
                 String unit=ph.getString(URLFactory.WATER_UNIT);
-
                 if(unit.equalsIgnoreCase("ml")) {
 					container_name.setText("" + menu.getContainerValue() + " " + unit);
 					if(menu.isCustom())
@@ -1019,7 +963,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					else
 						Glide.with(mContext).load(getImage(menu.getContainerValueOZ())).into(img_selected_container);
 				}
-
 				//container_name.setText(""+menu.getContainerValue()+" ml");
 			}
         });
@@ -1031,7 +974,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 */
 		/*if(!btnclick)
 			return;
-
 		btnclick=false;*/
 /*
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")
@@ -1049,19 +991,13 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			btnclick=true;
 			return;
 		}
-
 		float count_drink_after_add_current_water=drink_water;
-
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml"))
 			count_drink_after_add_current_water+=Float.parseFloat(""+containerArrayList.get(selected_pos).getContainerValue());
 		else if (!(URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")))
 			count_drink_after_add_current_water+=Float.parseFloat(""+containerArrayList.get(selected_pos).getContainerValueOZ());
-
-
 		Log.d("above8000",""+URLFactory.WATER_UNIT_VALUE+" @@@  "+drink_water
 				+" @@@ "+count_drink_after_add_current_water);
-
-
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")
 				&& count_drink_after_add_current_water>8000)
 		{
@@ -1080,7 +1016,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			else if(URLFactory.DAILY_WATER_VALUE<(270-Float.parseFloat(""+containerArrayList.get(selected_pos).getContainerValueOZ())))
 				showDailyMoreThanTargetDialog();
 		}
-
 		if(drink_water==8000 && URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")) {
 			btnclick=true;
 			return;
@@ -1090,21 +1025,15 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			btnclick=true;
 			return;
 		}
-
-
-
 		if(!ph.getBoolean(URLFactory.DISABLE_SOUND_WHEN_ADD_WATER)) {
 			//if(!ringtone.isPlaying())
 			ringtone.stop();
 			ringtone.play();
 		}
-
 		ContentValues initialValues = new ContentValues();
-
 		initialValues.put("ContainerValue", "" + containerArrayList.get(selected_pos).getContainerValue());
 		initialValues.put("ContainerValueOZ", "" + containerArrayList.get(selected_pos).getContainerValueOZ());
 		//initialValues.put("ContainerMeasure", "ml");
-
 */
 		/*initialValues.put("DrinkDate", "" + dth.getCurrentDate("dd-MM-yyyy"));
 		initialValues.put("DrinkTime", "" + dth.getCurrentTime(true));
@@ -1114,7 +1043,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		initialValues.put("DrinkTime", "" + dth.getCurrentTime(true));
 		initialValues.put("DrinkDateTime", "" + dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT)
 				+" "+dth.getCurrentDate("HH:mm:ss"));
-
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")) {
 			initialValues.put("TodayGoal", "" + URLFactory.DAILY_WATER_VALUE);
 			initialValues.put("TodayGoalOZ", "" + HeightWeightHelper.mlToOzConverter(URLFactory.DAILY_WATER_VALUE));
@@ -1122,14 +1050,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			initialValues.put("TodayGoal", "" + HeightWeightHelper.ozToMlConverter(URLFactory.DAILY_WATER_VALUE));
 			initialValues.put("TodayGoalOZ", "" + URLFactory.DAILY_WATER_VALUE);
 		}
-
 		dh.INSERT("tbl_drink_details", initialValues);
-
-
-
 		count_today_drink(true);
-
-
 		Intent intent = new Intent(act, NewAppWidget.class);
 		intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
 		// Use an array and EXTRA_APPWIDGET_IDS instead of AppWidgetManager.EXTRA_APPWIDGET_ID,
@@ -1142,19 +1064,14 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 /*	public void load_all_container()
 	{
 		containerArrayList.clear();
-
 		ArrayList<HashMap<String, String>> arr_container = dh.getdata("tbl_container_details","IsCustom",1);
-
 		String selected_container_id="1";
-
 		if(ph.getInt(URLFactory.SELECTED_CONTAINER)==0)
 			selected_container_id="1";
 		else
 			selected_container_id=""+ph.getInt(URLFactory.SELECTED_CONTAINER);
-
 		//Container container2=new Container();
 		//containerArrayList.add(container2);
-
 		for(int k=0;k<arr_container.size();k++)
 		{
 			Container container=new Container();
@@ -1169,13 +1086,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			containerArrayList.add(container);
 		}
 	}
-
 	public void count_today_drink(boolean isRegularAnimation)
 	{
 		//ArrayList<HashMap<String, String>>  arr_data=dh.getdata("tbl_drink_details","DrinkDate ='"+dth.getCurrentDate(URLFactory.DATE_FORMAT)+"'");
 		ArrayList<HashMap<String, String>>  arr_data=dh.getdata("tbl_drink_details"
 				,"DrinkDate ='"+dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT)+"'");
-
 		drink_water=0;
 		for(int k=0;k<arr_data.size();k++)
 		{
@@ -1184,13 +1099,10 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		    else
                 drink_water+=Double.parseDouble(""+arr_data.get(k).get("ContainerValueOZ"));
 		}
-
 		lbl_total_drunk.setText(getData(""+(int)(drink_water)+" "+URLFactory.WATER_UNIT_VALUE));
 		lbl_total_goal.setText(getData(""+(int)(URLFactory.DAILY_WATER_VALUE)+" "+URLFactory.WATER_UNIT_VALUE));
-
 		refresh_bottle(true,isRegularAnimation);
 	}
-
 	public String getData(String str)
 	{
 		return  str.replace(",",".");
@@ -1206,8 +1118,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 */
 			/*else
 				calculateAllDrink();*/
-		}
-		
+	}
+
 		/*else
 			calculateAllDrink();*/
 /*
@@ -1217,94 +1129,86 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 /*	public void refresh_bottle(boolean isFromCurrentProgress,boolean isRegularAnimation)
 	{
 		final long animationDuration=isRegularAnimation?50:5;
-
 		if(handler!=null && runnable!=null)
 		handler.removeCallbacks(runnable);
-
 		btnclick=false;
-
 		cp=progress_bottle_height;
 		np=Math.round((drink_water*max_bottle_height)/URLFactory.DAILY_WATER_VALUE);
 */
 		/*if(np>max_bottle_height)
 			np=max_bottle_height;*/
 
-/*		if(cp<=np && isFromCurrentProgress)
-		{
-			animationView.setVisibility(View.VISIBLE);
-			runnable = new Runnable() {
-				@Override
-				public void run() {
-
-					if(cp>max_bottle_height) {
-						btnclick = true;
-						callDialog();
-					}
-					else if(cp<np) {
-						cp+=6;
-						content_frame.getLayoutParams().height = cp;
-						content_frame.requestLayout();
-						handler.postDelayed(runnable, animationDuration);
-					}
-					else
-					{
-						btnclick=true;
-						callDialog();
-					}
-				}
-			};
-			handler = new Handler();
-			handler.postDelayed(runnable, animationDuration);
-		}
-		else if(np==0)
-		{
-			animationView.setVisibility(View.GONE);
-			content_frame.getLayoutParams().height = np;
-			content_frame.requestLayout();
-			btnclick=true;
-			//ah.customAlert("-->else if");
-			callDialog();
-		}
-		else
-		{
-			content_frame.getLayoutParams().height = 0;
-			cp=0;
-			animationView.setVisibility(View.VISIBLE);
-			runnable = new Runnable() {
-				@Override
-				public void run() {
-
-					if(cp>max_bottle_height) {
-						btnclick = true;
-						callDialog();
-					}
-					else if(cp<np) {
-						cp+=6;
-						content_frame.getLayoutParams().height = cp;
-						content_frame.requestLayout();
-						handler.postDelayed(runnable, animationDuration);
-					}
-					else
-					{
-						//ah.customAlert("-->else else");
-						btnclick=true;
-						callDialog();
-					}
-
-				}
-			};
-			handler = new Handler();
-			handler.postDelayed(runnable, animationDuration);
-		}
-
-		progress_bottle_height=np;
-
-		if(np>0)
-			animationView.setVisibility(View.VISIBLE);
-		else
-			animationView.setVisibility(View.GONE);
-	}
-*/
+	/*		if(cp<=np && isFromCurrentProgress)
+            {
+                animationView.setVisibility(View.VISIBLE);
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        if(cp>max_bottle_height) {
+                            btnclick = true;
+                            callDialog();
+                        }
+                        else if(cp<np) {
+                            cp+=6;
+                            content_frame.getLayoutParams().height = cp;
+                            content_frame.requestLayout();
+                            handler.postDelayed(runnable, animationDuration);
+                        }
+                        else
+                        {
+                            btnclick=true;
+                            callDialog();
+                        }
+                    }
+                };
+                handler = new Handler();
+                handler.postDelayed(runnable, animationDuration);
+            }
+            else if(np==0)
+            {
+                animationView.setVisibility(View.GONE);
+                content_frame.getLayoutParams().height = np;
+                content_frame.requestLayout();
+                btnclick=true;
+                //ah.customAlert("-->else if");
+                callDialog();
+            }
+            else
+            {
+                content_frame.getLayoutParams().height = 0;
+                cp=0;
+                animationView.setVisibility(View.VISIBLE);
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        if(cp>max_bottle_height) {
+                            btnclick = true;
+                            callDialog();
+                        }
+                        else if(cp<np) {
+                            cp+=6;
+                            content_frame.getLayoutParams().height = cp;
+                            content_frame.requestLayout();
+                            handler.postDelayed(runnable, animationDuration);
+                        }
+                        else
+                        {
+                            //ah.customAlert("-->else else");
+                            btnclick=true;
+                            callDialog();
+                        }
+                    }
+                };
+                handler = new Handler();
+                handler.postDelayed(runnable, animationDuration);
+            }
+            progress_bottle_height=np;
+            if(np>0)
+                animationView.setVisibility(View.VISIBLE);
+            else
+                animationView.setVisibility(View.GONE);
+        }
+    */
 /*	public void count_specific_day_drink(String custom_date)
 	{
 		ArrayList<HashMap<String, String>>  arr_dataO=dh.getdata("tbl_drink_details","DrinkDate ='"+custom_date+"'");
@@ -1316,12 +1220,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			else
 				old_drink_water+=Double.parseDouble(""+arr_dataO.get(k).get("ContainerValueOZ"));
 		}
-
 		ArrayList<HashMap<String, String>>  arr_data22=dh.getdata("tbl_drink_details","DrinkDate ='"+custom_date+"'","id",1);
-
 		//double total_drink=URLFactory.DAILY_WATER_VALUE;
 		double total_drink=0;
-
 		if(arr_data22.size()>0)
 		{
 			if(URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml"))
@@ -1329,10 +1230,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			else
 				total_drink=Double.parseDouble(arr_data22.get(0).get("TodayGoalOZ"));
 		}
-
-
 		ArrayList<HashMap<String, String>>  arr_data=dh.getdata("tbl_drink_details","DrinkDate ='"+custom_date+"'");
-
 		drink_water=0;
 		for(int k=0;k<arr_data.size();k++)
 		{
@@ -1340,27 +1238,18 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				drink_water+=Integer.parseInt(arr_data.get(k).get("ContainerValue"));
 			else
 				drink_water+=Integer.parseInt(arr_data.get(k).get("ContainerValueOZ"));
-
 			//drink_water+=Integer.parseInt(arr_data.get(k).get("ContainerValue"));
 		}
-
 		//ah.Show_Alert_Dialog(""+total_drink);
-
 		//lbl_total_goal.setText(""+total_drink+" "+URLFactory.WATER_UNIT_VALUE);
-
-
-
 		if(custom_date.equalsIgnoreCase(dth.getCurrentDate(URLFactory.DATE_FORMAT)))
 			URLFactory.DAILY_WATER_VALUE=ph.getFloat(URLFactory.DAILY_WATER);
 		else if(total_drink>0)
 			URLFactory.DAILY_WATER_VALUE=Float.parseFloat(""+total_drink);
 		else
 			URLFactory.DAILY_WATER_VALUE=ph.getFloat(URLFactory.DAILY_WATER);
-
-
 		lbl_total_drunk.setText(getData(""+(int)(drink_water)+" "+URLFactory.WATER_UNIT_VALUE));
 		lbl_total_goal.setText(getData(""+(int)(URLFactory.DAILY_WATER_VALUE)+" "+URLFactory.WATER_UNIT_VALUE));
-
 		refresh_bottle(false,false);
 	}
 */
@@ -1372,16 +1261,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	public void setCustomDate(String date) {
 		count_specific_day_drink(date);
 	}
-
 	//==========================
-
-
 	public void openChangeContainerPicker()
 	{
 		bottomSheetDialog=new BottomSheetDialog(act);
-
 		//bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
 		bottomSheetDialog.setOnShowListener(new DialogInterface.OnShowListener()
 		{
 			@Override
@@ -1394,17 +1278,13 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				bottomSheet.setBackground(null);
 			}
 		});
-
 		LayoutInflater layoutInflater=LayoutInflater.from(act);
 		View view = layoutInflater.inflate(R.layout.bottom_sheet_change_container, null, false);
-
 		final RecyclerView containerRecyclerViewN=view.findViewById(R.id.containerRecyclerView);
 		RelativeLayout add_custom_container=view.findViewById(R.id.add_custom_container);
-
 		GridLayoutManager manager = new GridLayoutManager(act, 3, GridLayoutManager.VERTICAL, false);
 		containerRecyclerViewN.setLayoutManager(manager);
 		containerRecyclerViewN.setAdapter(adapter);
-
 		add_custom_container.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -1412,13 +1292,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				openCustomContainerPicker();
 			}
 		});
-
 		bottomSheetDialog.setContentView(view);
-
 		bottomSheetDialog.show();
 	}
-
-
 	public void openCustomContainerPicker()
 	{
 		final Dialog dialog = new Dialog(act);
@@ -1426,40 +1302,30 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		dialog.getWindow().setBackgroundDrawableResource(R.drawable.drawable_background_tra);
 		dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 		dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
-
 		final View view = LayoutInflater.from(act).inflate(R.layout.bottom_sheet_add_custom_container, null, false);
-
 		RelativeLayout btn_cancel=view.findViewById(R.id.btn_cancel);
 		RelativeLayout btn_add=view.findViewById(R.id.btn_add);
 		ImageView img_cancel=view.findViewById(R.id.img_cancel);
-
 		final AppCompatEditText txt_value=view.findViewById(R.id.txt_value);
 		AppCompatTextView lbl_unit=view.findViewById(R.id.lbl_unit);
-
 		lbl_unit.setText(sh.get_string(R.string.str_capacity).replace("$1",URLFactory.WATER_UNIT_VALUE));
-
 		if(URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml"))
 			txt_value.setFilters(new InputFilter[]{new InputFilterWeightRange(1,8000)});
 		else
 			txt_value.setFilters(new InputFilter[]{new InputFilterWeightRange(1,270)});
-
 		txt_value.requestFocus();
-
 		btn_cancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				dialog.cancel();
 			}
 		});
-
 		img_cancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				dialog.cancel();
 			}
 		});
-
 		btn_add.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -1474,9 +1340,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				else
 				{
 					double tml=0,tfloz=0;
-
 					//String where_check_val="ContainerValue=";
-
 					if(URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml"))
 					{
 						tml=Float.parseFloat(txt_value.getText().toString().trim());
@@ -1488,19 +1352,17 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 						tfloz=Float.parseFloat(txt_value.getText().toString().trim());
 						tml=HeightWeightHelper.ozToMlConverter(tfloz);
 					}
-
 					Log.d("HeightWeightHelper",""+tml+" @@@ "+tfloz);
 */
 					/*ah.Show_Alert_Dialog(""+tml+" @@@ "+tfloz
 							+"\n\n"+Math.round(tml)+" @@@ "+Math.round(tfloz));*/
 
 
-					//dh.TOTAL_ROW("tbl_container_details","ContainerValue="+)
+	//dh.TOTAL_ROW("tbl_container_details","ContainerValue="+)
 
 /*
 					Cursor c = Constant.SDB.rawQuery("SELECT MAX(ContainerID) FROM tbl_container_details", null);
 					int nextContainerID=0;
-
 					try {
 						if (c.getCount() > 0) {
 							c.moveToNext();
@@ -1509,23 +1371,16 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 						}
 					}
 					catch (Exception e){}
-
 					ContentValues initialValues = new ContentValues();
-
 					initialValues.put("ContainerID", ""+nextContainerID);
 					initialValues.put("ContainerValue", ""+Math.round(tml));
 					initialValues.put("ContainerValueOZ", ""+Math.round(tfloz));
 					initialValues.put("IsOpen", "1");
 					initialValues.put("IsCustom", "1");
-
 					dh.INSERT("tbl_container_details", initialValues);
-
 					load_all_container();
-
 					ph.savePreferences(URLFactory.SELECTED_CONTAINER,nextContainerID);
-
 					int tmp_pos=-1;
-
 					for(int k=0;k<containerArrayList.size();k++)
 					{
 						try {
@@ -1540,16 +1395,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 							containerArrayList.get(k).isSelected(false);
 						}
 					}
-
-
 					String unit=ph.getString(URLFactory.WATER_UNIT);
-
 					if(tmp_pos>=0)
 					{
 						selected_pos=tmp_pos;
-
 						Container menu = containerArrayList.get(tmp_pos);
-
 						if (unit.equalsIgnoreCase("ml")) {
 							container_name.setText("" + menu.getContainerValue() + " " + unit);
 							if(menu.isCustom())
@@ -1564,20 +1414,13 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 								Glide.with(mContext).load(getImage(menu.getContainerValueOZ())).into(img_selected_container);
 						}
 					}
-
 					//containerArrayList.get(position).isSelected(true);
-
 					adapter.notifyDataSetChanged();
-
 					dialog.dismiss();
-
-
 				}
 			}
 		});
-
 		dialog.setContentView(view);
-
 		dialog.show();
 	}
 */
@@ -1586,9 +1429,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	public Integer getImage(String val)
 	{
 		Integer drawable=R.drawable.ic_custom_ml;
-
 		if (URLFactory.WATER_UNIT_VALUE.equalsIgnoreCase("ml")) {
-
 			if (Double.parseDouble(val) == 50)
 				drawable = R.drawable.ic_50_ml;
 			else if (Double.parseDouble(val) == 100)
@@ -1641,7 +1482,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			else if (Double.parseDouble(val) == 34)
 				drawable = R.drawable.ic_1000_ml;
 		}
-
 		return drawable;
 	}
 */
@@ -1769,7 +1609,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		final ImageView img_auto=view.findViewById(R.id.img_auto);
 
 		/*AppCompatTextView advance_settings=view.findViewById(R.id.advance_settings);
-
 		advance_settings.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

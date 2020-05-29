@@ -7,18 +7,20 @@ import android.widget.Button;
 
 import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 
-public class handbook_createAccount extends MasterBaseActivity {
+public class handbook_navigation extends MasterBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.handbook_create_account);
-        Button createAccount = findViewById(R.id.createacc);
-        createAccount.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.handbook_drawer);
+        Button buyco = findViewById(R.id.store);
+
+        buyco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), handbook_createAccount.class);
+                Intent intent = new Intent(getApplicationContext(), handbook_store.class);
                 startActivity(intent);
             }
-        });
+        }
+        );
     }
 }

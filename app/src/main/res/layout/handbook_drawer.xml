@@ -70,11 +70,12 @@
                 android:background="@drawable/health_tips"></androidx.appcompat.widget.AppCompatImageView>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:gravity="left"
-                android:text="History"></androidx.appcompat.widget.AppCompatButton>
+                android:text="Store"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
 
         <LinearLayout

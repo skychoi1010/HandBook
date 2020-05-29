@@ -71,6 +71,7 @@ dependencies {
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
 }
 
