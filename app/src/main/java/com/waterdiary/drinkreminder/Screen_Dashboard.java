@@ -33,6 +33,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -58,6 +59,8 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import com.waterdiary.drinkreminder.adapter.ContainerAdapterNew;
 import com.waterdiary.drinkreminder.adapter.MenuAdapter;
@@ -173,6 +176,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 	LinearLayout open_profile;
 
+	FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -215,9 +220,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					}
 					else
 					{
-						Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+						Intent intent2 = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
 						intent.setData(Uri.parse("package:" + packageName));
-						startActivity(intent);
+						startActivity(intent2);
 					}
 				}
 				/*else
@@ -308,7 +313,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			ah.Show_Alert_Dialog(""+e.getMessage());
 		}
 	}
-
+/*
 	public void loadPhoto()
 	{
 		if(sh.check_blank_data(ph.getString(URLFactory.USER_PHOTO))) {
@@ -340,7 +345,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		}
 	}
-
+*/
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -393,8 +398,11 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 			}
 		});
-
-		lbl_user_name.setText(ph.getString(URLFactory.USER_NAME));
+		if(user.getDisplayName() != null){
+			lbl_user_name.setText(user.getDisplayName());
+		}
+		else
+			lbl_user_name.setText("Anonymous");
 	}
 
 	public void menuBody()
@@ -405,7 +413,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		img_pre=findViewById(R.id.img_pre);
 		img_next=findViewById(R.id.img_next);
 
-		img_user=findViewById(R.id.img_user);
+		//img_user=findViewById(R.id.img_user);
 		//open_profile=findViewById(R.id.open_profile);
 
 		btn_rate_us=findViewById(R.id.btn_rate_us);
@@ -414,10 +422,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		mDrawerList = findViewById(R.id.left_drawer);
 		lbl_user_name=findViewById(R.id.lbl_user_name);
 
-		loadPhoto();
-
+		//loadPhoto();
 		lbl_toolbar_title.setText(sh.get_string(R.string.str_today));
-		lbl_user_name.setText(ph.getString(URLFactory.USER_NAME));
 
 
 		menu_name.clear();

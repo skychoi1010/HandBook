@@ -28,8 +28,6 @@ public class Screen_Splash extends MasterBaseAppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_splash);
 
-        img_splash_logo=findViewById(R.id.img_splash_logo);
-
         Intent intent = new Intent(act, NewAppWidget.class);
         intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         int[] ids = AppWidgetManager.getInstance(act).getAppWidgetIds(new ComponentName(act, NewAppWidget.class));

@@ -44,7 +44,6 @@
 
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_start" />
-        <activity android:name="com.waterdiary.drinkreminder.handbook_login" />
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_createAccount" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_healthtips" />
