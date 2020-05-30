@@ -2,15 +2,11 @@ package com.waterdiary.drinkreminder;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.appwidget.AppWidgetManager;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -20,7 +16,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,35 +24,22 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.basic.appbasiclibs.utils.Constant;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -67,26 +49,15 @@ import com.waterdiary.drinkreminder.adapter.MenuAdapter;
 import com.waterdiary.drinkreminder.adapter.MyPageAdapter;
 import com.waterdiary.drinkreminder.adapter.SoundAdapter;
 import com.waterdiary.drinkreminder.base.MasterBaseAppCompatActivity;
-import com.waterdiary.drinkreminder.custom.InputFilterWeightRange;
 import com.waterdiary.drinkreminder.model.Container;
 import com.waterdiary.drinkreminder.model.Menu;
-import com.waterdiary.drinkreminder.model.NextReminderModel;
 import com.waterdiary.drinkreminder.model.SoundModel;
-import com.waterdiary.drinkreminder.mywidgets.NewAppWidget;
-import com.waterdiary.drinkreminder.utils.HeightWeightHelper;
 import com.waterdiary.drinkreminder.utils.URLFactory;
 
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Random;
 
 public class Screen_Dashboard extends MasterBaseAppCompatActivity
 {
@@ -434,8 +405,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		menu_name.add(new Menu(sh.get_string(R.string.str_health_tips),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_store),false));
 		//menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
-		menu_name.add(new Menu(sh.get_string(R.string.str_privacy_policy),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_tell_a_friend),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_logout),false));
 
 		menuAdapter = new MenuAdapter(act, menu_name, new MenuAdapter.CallBack() {
 			@Override
@@ -467,18 +438,31 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				   intent=new Intent(act,Screen_FAQ.class);
 				   startActivity(intent);
 			   }*/
-				else if(position==5)
+				/*else if(position==5)
 				{
 					Intent i = new Intent(Intent.ACTION_VIEW);
 					i.setData(Uri.parse(URLFactory.PRIVACY_POLICY_ULR));
 					startActivity(i);
-				}
-				else if(position==6)
+				}*/
+				else if(position==5)
 				{
 					String str=sh.get_string(R.string.app_share_txt).replace("#1",URLFactory.APP_SHARE_URL);
-
 					ih.ShareText(getApplicationName(mContext),str);
 				}
+				else if(position==6)
+			   {
+				   FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+				   if (user != null) {
+					   // User is signed in
+					   FirebaseAuth.getInstance().signOut();
+					   Intent i = new Intent(Screen_Dashboard.this, handbook_start.class);
+					   i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+					   startActivity(i);
+				   } else {
+					   // User is signed out
+					   Toast.makeText(Screen_Dashboard.this, "You are already signed out", Toast.LENGTH_SHORT).show();
+				   }
+			   }
 			}
 		});
 

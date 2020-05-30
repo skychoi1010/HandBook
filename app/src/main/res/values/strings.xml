@@ -81,6 +81,7 @@
     <string name="str_store">Store</string>
     <string name="str_health_tips">Health Tips</string>
 
+    <string name="str_logout">Logout</string>
     <string name="str_drink_water">Drink Water</string>
     <string name="str_drink_history">Drink History</string>
     <string name="str_settings">Settings</string>

@@ -313,7 +313,7 @@ public class Screen_Reminder extends MasterBaseActivity
             }
         });
 
-
+/*
         if(ph.getBoolean(URLFactory.IS_MANUAL_REMINDER)) {
             rdo_manual_alarm.setChecked(true);
             manual_reminder_block.setVisibility(View.VISIBLE);
@@ -324,7 +324,7 @@ public class Screen_Reminder extends MasterBaseActivity
             manual_reminder_block.setVisibility(View.GONE);
             auto_reminder_block.setVisibility(View.VISIBLE);
         }
-
+*/
 
         rdo_auto_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
