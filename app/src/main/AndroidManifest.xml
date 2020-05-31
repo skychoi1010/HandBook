@@ -44,10 +44,10 @@
 
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_start" />
-        <activity android:name="com.waterdiary.drinkreminder.handbook_login" />
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_createAccount" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_healthtips" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_tips" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_store" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_stretching" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_balcheck" />
@@ -55,7 +55,9 @@
         <activity android:name="com.waterdiary.drinkreminder.handbook_navigation" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_OnBoarding"
             android:windowSoftInputMode="adjustNothing"/>
-
+        <activity android:name="com.waterdiary.drinkreminder.handbook_news" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_newsclass" />
+        <activity android:name="com.waterdiary.drinkreminder.NewsListAdapter" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_History" />
 
         <activity android:name="com.waterdiary.drinkreminder.Screen_Settings" />
@@ -71,7 +73,6 @@
         <activity android:name="com.waterdiary.drinkreminder.Screen_Backup_Restore" />
 
         <activity android:name="com.waterdiary.drinkreminder.Screen_Profile" />
-
 
 
 

@@ -16,232 +16,146 @@
         android:padding="@dimen/dp_2">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_10"
-            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_50"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:paddingTop="@dimen/dp_20"
                 android:fontFamily="@font/calibri_bold"
-                android:gravity="left"
-                android:padding="@dimen/dp_20"
                 android:text="Create Account"
                 android:textColor="@color/rdo_gender_select"
-                android:textSize="45sp" />
+                android:textSize="36sp" />
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_2"
-            android:layout_marginTop="@dimen/dp_2"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_2"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
-                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/dp_30"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginLeft="@dimen/dp_2"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="left"
                     android:text="Name"
-                    android:textColor="@color/black_48"
+                    android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/txt_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
-                    android:maxLength="20"
-                    android:minWidth="@dimen/dp_200"
-                    android:textColor="@color/rdo_gender_select"
+                    android:inputType="text"
+                    android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_2"
-            android:layout_marginTop="@dimen/dp_2"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_2"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginLeft="@dimen/dp_2"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="left"
-                    android:text="Email id/Phone number)"
-                    android:textColor="@color/black_48"
+                    android:inputType="textEmailAddress"
+                    android:text="Email id"
+                    android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txt_email"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:digits="@string/only_character"
                     android:fontFamily="@font/calibri_regular"
                     android:gravity="left"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapWords"
-                    android:maxLength="20"
-                    android:minWidth="@dimen/dp_200"
-                    android:textColor="@color/rdo_gender_select"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_2"
-            android:layout_marginTop="@dimen/dp_2"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_2"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginLeft="@dimen/dp_2"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="center"
                     android:text="Password"
-                    android:textColor="@color/black_48"
+                    android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
 
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPassword" />
-
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_2"
-            android:layout_marginTop="@dimen/dp_2"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_2"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:orientation="vertical">
+                    android:layout_gravity="left"
+                    android:fontFamily="@font/calibri_regular"
+                    android:inputType="textPassword"
+                    android:textColor="#012C28"
+                    android:textSize="@dimen/sp_15" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginLeft="@dimen/dp_2"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="center"
                     android:text="Confirm Password"
-                    android:textColor="@color/black_48"
+                    android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
 
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/cpwd"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPassword" />
-
+                    android:layout_gravity="left"
+                    android:fontFamily="@font/calibri_regular"
+                    android:inputType="textPassword"
+                    android:textColor="#012C28"
+                    android:textSize="@dimen/sp_15" />
             </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dp_10">
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation='horizontal'>
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="130dp"
-                    android:layout_height="@dimen/dp_60"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:text="@string/str_male"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="130dp"
-                    android:layout_height="@dimen/dp_60"
-                    android:text="@string/str_female"
-                    android:textColor="@color/black_48"
-                    android:textSize="18sp" />
-            </RadioGroup>
-
-            <Button
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/createacc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_70"
-                android:layout_marginRight="@dimen/dp_10"
-                android:background="@color/white"
-                android:fontFamily="@font/calibri_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/water_color"
+                android:fontFamily="@font/calibri_bold"
                 android:gravity="center"
                 android:includeFontPadding="true"
-                android:minWidth="@dimen/dp_50"
-                android:text="Create account"
-                android:textColor="#F10255"
-                android:textSize="18sp"></Button>
+                android:minWidth="@dimen/dp_80"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                android:textSize="20sp"></androidx.appcompat.widget.AppCompatTextView>
         </RelativeLayout>
     </LinearLayout>
 

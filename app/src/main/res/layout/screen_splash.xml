@@ -8,14 +8,17 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/img_splash_logo"
-        android:layout_width="@dimen/dp_180"
-        android:layout_height="@dimen/dp_180"
-        android:layout_centerInParent="true"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ic_splash_logo_with_drops"
-        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:fontFamily="@font/calibri_bold"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="Handbook"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="60sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
