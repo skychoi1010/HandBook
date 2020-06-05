@@ -10,30 +10,39 @@
         <TextView
             android:id="@+id/newstitle"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_66"
-            android:layout_weight="66.6"
-            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="45"
+            android:gravity="center|start"
             android:textAlignment="center"
             android:textSize="@dimen/dp_20" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/newsubtitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="33.4"
+        android:layout_weight="45"
+        android:gravity="center_horizontal|left|center_vertical"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:layout_weight="10"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/newssubtitle"
+            android:id="@+id/link"
             android:layout_width="@dimen/dp_250"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="center|left"
             android:textAlignment="center"
             android:textSize="@dimen/dp_10" />
 
         <TextView
             android:id="@+id/read"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textSize="18sp" />
 
     </LinearLayout>
 

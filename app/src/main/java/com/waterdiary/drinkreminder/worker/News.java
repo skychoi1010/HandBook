@@ -24,17 +24,4 @@ public class News {
         this.read = read;
         this.title = title;
     }
-
-//    @Exclude
-//    public Map<String, Object> toMap() {
-//        HashMap<String, Object> result = new HashMap<>();
-//        result.put("content", content);
-//        result.put("date", date);
-//        result.put("link", link);
-//        result.put("read", read);
-//        result.put("title", title);
-//
-//        return result;
-//
-//    }
 }

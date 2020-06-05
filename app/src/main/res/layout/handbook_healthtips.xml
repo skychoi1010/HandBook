@@ -45,28 +45,41 @@
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/healthTipsIMG" />
 
-    <WebView
-        android:id="@+id/mapView"
-        android:layout_width="200dp"
-        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/doc1"
+        <WebView
+            android:id="@+id/mapView"
+            android:layout_width="200dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/doc1"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_x="-202dp"
+                android:layout_y="-2dp"
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/drawable_button_blue" />
+
+            <ImageView
+                android:id="@+id/doc2"
+                android:layout_width="413dp"
+                android:layout_height="177dp"
+                android:layout_x="-202dp"
+                android:layout_y="37dp"
+                app:srcCompat="@drawable/drawable_button_blue"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        </WebView>
+
+        <ListView
+            android:id="@+id/hosp_list"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_x="-202dp"
-            android:layout_y="-2dp"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/drawable_button_blue" />
+            android:layout_height="match_parent" />
 
-        <ImageView
-            android:id="@+id/doc2"
-            android:layout_width="413dp"
-            android:layout_height="177dp"
-            android:layout_x="-202dp"
-            android:layout_y="37dp"
-            app:srcCompat="@drawable/drawable_button_blue"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
-    </WebView>
+    </LinearLayout>
 
 </LinearLayout>

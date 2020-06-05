@@ -41,11 +41,13 @@ int mResource;
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView=inflater.inflate(mResource,parent,false);
         TextView tvtitle = (TextView) convertView.findViewById(R.id.newstitle);
-        TextView tvsubsitile = (TextView) convertView.findViewById(R.id.newssubtitle);
+        TextView tvsubtitile = (TextView) convertView.findViewById(R.id.newsubtitle);
         TextView reada = (TextView) convertView.findViewById(R.id.read);
+        TextView links = (TextView) convertView.findViewById(R.id.link);
         tvtitle.setText(title);
-        tvsubsitile.setText(content);
+        tvsubtitile.setText(content);
         reada.setText(read);
+        links.setText(link);
         return convertView;
     }
 }

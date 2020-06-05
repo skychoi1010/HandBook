@@ -25,11 +25,7 @@ public class handbook_news extends AppCompatActivity {
     ArrayList<News> news_list = new ArrayList<>();
     DatabaseReference mDatabase;
     NewsListAdapter adapter;
-
     ListView mListView;
-//    ArrayList<handbook_newsclass> newslist = new ArrayList<>();
-
-    Button btn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +42,12 @@ public class handbook_news extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         mListView = (ListView) findViewById(R.id.newslist);
-//        news_list.add(new News("aa", "bb", "cc", "dd", "ee"));
         adapter = new NewsListAdapter(this, R.layout.handbook_newslist, news_list);
+        System.out.println(news_list);
         mListView.setAdapter(adapter);
         getFirebase();
     }
-
-
     public void getFirebase() {
         final ValueEventListener postListener = new ValueEventListener() {
             @Override
@@ -65,14 +58,6 @@ public class handbook_news extends AppCompatActivity {
                     news_list.add(news);
                     Log.d("news", news.content);
                 }
-//                adapter.clear();
-//                Log.d("news list size: ", news_list.size());
-                System.out.println("News list size: " + news_list.size());
-//                adapter.addAll(news_list); //?
-                adapter.notifyDataSetChanged();
-                System.out.println("Last News list size: " + news_list.size());
-//                Log.d("Done", news_list/)
-
             }
 
             @Override
