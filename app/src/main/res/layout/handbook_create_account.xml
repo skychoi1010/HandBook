@@ -100,7 +100,7 @@
                     android:layout_marginTop="@dimen/dp_10"
                     android:fontFamily="@font/calibri_bold"
                     android:gravity="center"
-                    android:text="Password"
+                    android:text="Password (at least 6 letters)"
                     android:textColor="#012C28"
                     android:textSize="@dimen/sp_15" />
 

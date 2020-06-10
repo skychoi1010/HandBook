@@ -1,11 +1,12 @@
 package com.waterdiary.drinkreminder;
 
 import android.os.Bundle;
-import androidx.appcompat.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 import com.waterdiary.drinkreminder.custom.AnimationUtils;
@@ -167,7 +168,6 @@ public class Screen_FAQ extends MasterBaseActivity
                     }
                     else
                     {
-
                         img_faq.setImageResource(R.drawable.ic_faq_plus);
                         AnimationUtils.collapse(answer_block);
                     }

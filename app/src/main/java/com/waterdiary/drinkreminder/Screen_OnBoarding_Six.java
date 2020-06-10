@@ -90,9 +90,9 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 		txt_bed_time=item_view.findViewById(R.id.txt_bed_time);
 
 		rdo_15=item_view.findViewById(R.id.rdo_15);
-		rdo_30=item_view.findViewById(R.id.rdo_30);
-		rdo_45=item_view.findViewById(R.id.rdo_45);
-		rdo_60=item_view.findViewById(R.id.rdo_60);
+		rdo_30=item_view.findViewById(R.id.rdo_20);
+		rdo_45=item_view.findViewById(R.id.rdo_30);
+		rdo_60=item_view.findViewById(R.id.rdo_35);
 
 		lbl_message=item_view.findViewById(R.id.lbl_message);
 	}
