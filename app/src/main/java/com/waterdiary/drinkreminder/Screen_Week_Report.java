@@ -8,17 +8,6 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +16,19 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -38,9 +36,11 @@ import com.github.mikephil.charting.formatter.IFillFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.Utils;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 import com.waterdiary.drinkreminder.adapter.HistoryAdapter;
 import com.waterdiary.drinkreminder.base.MasterBaseAppCompatActivity;
@@ -308,23 +308,23 @@ public class Screen_Week_Report extends MasterBaseFragment
 
 			String str=avg_fre>1?sh.get_string(R.string.times):sh.get_string(R.string.time);
 
-			txt_avg_intake.setText("" + avg + " " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
-			txt_drink_fre.setText("" + avg_fre +" " + str + "/"+sh.get_string(R.string.day));
+			//txt_avg_intake.setText("" + avg + " " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
+			//txt_drink_fre.setText("" + avg_fre +" " + str + "/"+sh.get_string(R.string.day));
 
 		}
 		catch (Exception e){
-			txt_avg_intake.setText("0 " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
-			txt_drink_fre.setText("0 "+sh.get_string(R.string.time)+"/"+sh.get_string(R.string.day));
+			//txt_avg_intake.setText("0 " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
+			//txt_drink_fre.setText("0 "+sh.get_string(R.string.time)+"/"+sh.get_string(R.string.day));
 		}
 
 		try {
 
 			int avg_com = (int) Math.round((total_drink * 100) / total_goal);
 
-			txt_drink_com.setText("" + avg_com + "%");
+			//txt_drink_com.setText("" + avg_com + "%");
 		}
 		catch (Exception e){
-			txt_drink_com.setText("0%");
+			//txt_drink_com.setText("0%");
 		}
 
 

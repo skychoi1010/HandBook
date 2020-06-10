@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Water Diary</string>
+    <string name="app_name">Handbook</string>
 
     <string name="only_digit_character" translatable="false">0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="only_digit" translatable="false">0123456789</string>
