@@ -10,6 +10,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -22,6 +26,8 @@
         tools:replace="android:allowBackup"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -63,7 +69,7 @@
         <activity android:name="com.waterdiary.drinkreminder.hospadapter" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_doc_map" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_Settings" />
-
+        <activity android:name="com.waterdiary.drinkreminder.handbook_maps" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_Report" />
 
         <activity android:name="com.waterdiary.drinkreminder.Screen_Reminder" />

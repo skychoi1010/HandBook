@@ -328,5 +328,6 @@
     <string name="faq_answer_8">You can click on the menu and select Drink History then view your drink history.</string>
     <string name="faq_answer_9">You can click on the menu and select Drink Report option then view using following 3 options:\n1. Weekly Report\n2. Monthly Report\n3. Yearly Report</string>
     <string name="health_tips">Health Tips</string>
+    <string name="map_key" />
 
 </resources>
