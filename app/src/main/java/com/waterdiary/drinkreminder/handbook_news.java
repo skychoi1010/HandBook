@@ -29,7 +29,7 @@ public class handbook_news extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.handbook_health);
+        setContentView(R.layout.handbook_healthtips);
         TextView buyco = findViewById(R.id.textView13);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -46,9 +46,9 @@ public class handbook_news extends AppCompatActivity {
         adapter = new NewsListAdapter(this, R.layout.handbook_newslist, news_list);
         System.out.println(news_list);
         mListView.setAdapter(adapter);
-        getFirebase();
+        getFirebaseNews();
     }
-    public void getFirebase() {
+    public void getFirebaseNews() {
         final ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

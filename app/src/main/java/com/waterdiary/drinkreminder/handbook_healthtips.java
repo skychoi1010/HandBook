@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import com.waterdiary.drinkreminder.R;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
@@ -26,7 +26,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.waterdiary.drinkreminder.worker.handbook_hospitaldata;
 
 import java.util.ArrayList;
 
@@ -36,26 +35,34 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.widget.Toast;
-
+import com.waterdiary.drinkreminder.R;
+import com.waterdiary.drinkreminder.worker.News;
+import com.waterdiary.drinkreminder.worker.handbook_hospitaldata;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 
 public class handbook_healthtips extends MasterBaseActivity {
     ArrayList<handbook_hospitaldata> hosp_list = new ArrayList<>();
     ArrayList<handbook_hospitaldata> hosp_near = new ArrayList<>();
-    //ArrayList<Double> userlocation= new ArrayList<Double>();
     double latitude;
     double longitude;
     DatabaseReference nDatabase;
     hospadapter adap;
     ListView nListView;
+    ArrayList<News> news_list = new ArrayList<>();
+    DatabaseReference mDatabase;
+    NewsListAdapter adapter;
+    ListView mListView;
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
     @Override
@@ -63,52 +70,22 @@ public class handbook_healthtips extends MasterBaseActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.handbook_healthtips);
             TextView Tips = findViewById(R.id.healthTips);
-            TextView News = findViewById(R.id.news);
+            mListView = findViewById(R.id.newslist);
             nDatabase = FirebaseDatabase.getInstance().getReference();
             nDatabase.keepSynced(true);
             nListView = (ListView) findViewById(R.id.hosp_list);
 
-            adap = new hospadapter(this, R.layout.handbook_hosp, hosp_list);
-            //System.out.println(hosp_list);
+            adap = new hospadapter(this, R.layout.handbook_hosp, hosp_near);
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.keepSynced(true);
+            adapter = new NewsListAdapter(this, R.layout.handbook_newslist, news_list);
+            mListView.setAdapter(adapter);
+            getFirebaseNews();
             nListView.setAdapter(adap);
-            getFirebase();
+            //getFirebase();
             Log.d("we back yo", "onCreate: we back");
             mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             getLastLocation();
-  /*          //ArrayList<Double> user = (ArrayList<Double>) getLastLocation();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user == null) {
-            // No session user
-            Toast.makeText(getApplicationContext(), "Please log in to save data", Toast.LENGTH_SHORT).show();
-        }
-        assert user != null;
-        String userId = user.getUid();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference userdata = database.getReference("UserData").child(userId);
-        getLastLocation();
-
-        userdata.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                double latitude = dataSnapshot.getValue(Double.class);
-                double longitude = dataSnapshot.getValue(Double.class);
-                for (int i = 0; i < hosp_list.size(); i++) {
-                    handbook_hospitaldata nam = handbook_hospitaldata.class.cast(hosp_list.get(i));
-                    assert nam != null;
-                    float hosp_lat = Float.parseFloat(nam.lat);
-                    float hosp_lon = Float.parseFloat(nam.lon);
-                    float distance = calculateDistanceInKilometer(latitude, longitude, hosp_lat, hosp_lon);
-                    Log.d("distance", String.valueOf(distance));
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-*/
             Tips.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -117,26 +94,17 @@ public class handbook_healthtips extends MasterBaseActivity {
                                         }
                                     }
             );
-            News.setOnClickListener(new View.OnClickListener() {
-                                        public void onClick(View view) {
-                                            Intent intent2 = new Intent(getApplicationContext(), handbook_news.class);
-                                            startActivity(intent2);
-                                        }
-                                    }
-            );
         }
-    public void getFirebase() {
+    public void getFirebaseNews() {
         final ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                hosp_list.clear();
+                news_list.clear();
                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                    handbook_hospitaldata hosp = childDataSnapshot.getValue(handbook_hospitaldata.class);
-                    hosp_list.add(hosp);
-                    adap.notifyDataSetChanged();
-                    assert hosp != null;
-                    Log.d("hosp", hosp.name);
-                    Log.d("doctor",hosp.doctor);
+                    News news = childDataSnapshot.getValue(News.class);
+                    news_list.add(news);
+                    Log.d("news", news.content);
+                    adapter.notifyDataSetChanged();
                 }
             }
 
@@ -144,7 +112,7 @@ public class handbook_healthtips extends MasterBaseActivity {
             public void onCancelled (DatabaseError databaseError){
             }
         };
-        nDatabase.child("/hospitals").addValueEventListener(postListener);
+        mDatabase.child("/news").addValueEventListener(postListener);
     }
     public final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;
     public int calculateDistanceInKilometer(double userLat, double userLng,
@@ -158,11 +126,11 @@ public class handbook_healthtips extends MasterBaseActivity {
                 * Math.sin(lngDistance / 2) * Math.sin(lngDistance / 2);
 
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        Log.d("tagjgdhagdjhfdjafd", "calculateDistanceInKilometer: whooh");
         return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH_KM * c));
     }
     @SuppressLint("MissingPermission")
     private void getLastLocation(){
+        Log.d("why you repeat", "onComplete: ");
         if (checkPermissions()) {
             if (isLocationEnabled()) {
                 mFusedLocationClient.getLastLocation().addOnCompleteListener(
@@ -170,36 +138,58 @@ public class handbook_healthtips extends MasterBaseActivity {
 
                             @Override
                             public void onComplete(@NonNull Task<Location> task) {
-                                Location location = task.getResult();
+                                final Location location = task.getResult();
+
                                 if (location == null) {
                                     requestNewLocationData();
                                 } else {
                                     latitude=location.getLatitude();
                                     longitude=location.getLongitude();
-                                    Log.d("log8", location.getLatitude()+"");
-                                    Log.d("log8",location.getLongitude()+"");
-                                    /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                    if (user == null) {
-                                        // No session user
-                                        Toast.makeText(getApplicationContext(), "Please log in to save data", Toast.LENGTH_SHORT).show();
-                                    }
-                                    assert user != null;
-                                    String userId = user.getUid();
-                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference userdata = database.getReference("UserData").child(userId);
-                                    userdata.child("longitude").setValue(longitude);
-                                    userdata.child("latitude").setValue(latitude);*/
-                                        getFirebase();
-                                        Log.d("hosplis", String.valueOf(hosp_list.size()));
-                                        for (int i = 0; i < hosp_list.size(); i++) {
-                                        handbook_hospitaldata nam = handbook_hospitaldata.class.cast(hosp_list.get(i));
-                                        assert nam != null;
-                                        double hosp_lat = Float.parseFloat(nam.lat);
-                                        double hosp_lon = Float.parseFloat(nam.lon);
-                                        double distance = calculateDistanceInKilometer(latitude, longitude, hosp_lat, hosp_lon);
-                                        Log.d("distance"+i, String.valueOf(distance));
-                                    }
 
+                                    final ValueEventListener postListener = new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            hosp_list.clear();
+                                            TreeMap<Integer,String> map = new TreeMap<Integer,String>();
+                                            for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                                                handbook_hospitaldata hosp = childDataSnapshot.getValue(handbook_hospitaldata.class);
+                                                hosp_list.add(hosp);
+                                                adap.notifyDataSetChanged();
+                                                assert hosp != null;
+                                                int distance=calculateDistanceInKilometer(location.getLatitude(),location.getLongitude(),Double.parseDouble(hosp.lat),Double.parseDouble(hosp.lon));
+                                                map.put(distance,hosp.name);
+                                            }
+                                            Log.d("powowowow", "onDataChange: ");
+                                            System.out.println("ㅁㄴㅇㅁㄴㅇㅁ");
+                                            System.out.print(map);
+                                            SortedMap<Integer, String> cutmap = map.subMap(0,50);
+                                            for (final Map.Entry<Integer, String> pair : cutmap.entrySet()) {
+                                                final ValueEventListener postListener = new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        hosp_near.clear();
+                                                        for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                                                            handbook_hospitaldata hosp = childDataSnapshot.getValue(handbook_hospitaldata.class);
+                                                            assert hosp != null;
+                                                            if (pair.getValue().equals(hosp.name)) {
+                                                                hosp_near.add(hosp);
+                                                                adap.notifyDataSetChanged();
+                                                            }
+                                                        }
+                                                    }
+                                                    @Override
+                                                    public void onCancelled (DatabaseError databaseError){
+                                                    }
+                                                };
+                                                nDatabase.child("/hospitals").addValueEventListener(postListener);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled (DatabaseError databaseError){
+                                        }
+                                    };
+                                    nDatabase.child("/hospitals").addValueEventListener(postListener);
                                 }
                             }
 
@@ -214,8 +204,7 @@ public class handbook_healthtips extends MasterBaseActivity {
         else {
             requestPermissions();
         }
-        System.out.print(latitude+"returnloc"+longitude+"\n");
-    return ;
+
     }
 
 
@@ -236,21 +225,11 @@ public class handbook_healthtips extends MasterBaseActivity {
 
     }
 
-    private LocationCallback mLocationCallback = new LocationCallback() {
+   private LocationCallback mLocationCallback = new LocationCallback() {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
-            Log.d("log8", mLastLocation.getLatitude()+"");
-            Log.d("log8",mLastLocation.getLongitude()+"");
-            getFirebase();
-            for (int i = 0; i < hosp_list.size(); i++) {
-                handbook_hospitaldata nam = handbook_hospitaldata.class.cast(hosp_list.get(i));
-                assert nam != null;
-                double hosp_lat = Float.parseFloat(nam.lat);
-                double hosp_lon = Float.parseFloat(nam.lon);
-                double distance = calculateDistanceInKilometer(latitude, longitude, hosp_lat, hosp_lon);
-                Log.d("distance"+i, String.valueOf(distance));
-            }
+
         }
     };
 
@@ -295,4 +274,5 @@ public class handbook_healthtips extends MasterBaseActivity {
         }
 
     }
+
 }

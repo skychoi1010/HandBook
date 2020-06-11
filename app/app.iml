@@ -211,7 +211,7 @@
     <orderEntry type="library" name="Gradle: com.github.jakob-grabner:Circle-Progress-View:1.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.tbuonomo.andrui:viewpagerdotsindicator:3.0.2@aar" level="project" />
     <orderEntry type="module" module-name="HorizontalPicker" />
-    <orderEntry type="module" module-name="HandBook-appbasiclibs" />
+    <orderEntry type="module" module-name="appbasiclibs" />
     <orderEntry type="module" module-name="MPChartLib" />
   </component>
 </module>
