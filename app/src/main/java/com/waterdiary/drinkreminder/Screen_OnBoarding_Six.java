@@ -70,11 +70,9 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
         final Calendar c = Calendar.getInstance(Locale.US);
         int mHour = c.get(Calendar.HOUR_OF_DAY);
         int mMinute = c.get(Calendar.MINUTE);
-
         // Launch Time Picker Dialog
         TimePickerDialog timePickerDialog = new TimePickerDialog(act,
                 new TimePickerDialog.OnTimeSetListener() {
-
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         appCompatTextView.setText(hourOfDay + ":" + minute);
@@ -90,9 +88,9 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 		txt_bed_time=item_view.findViewById(R.id.txt_bed_time);
 
 		rdo_15=item_view.findViewById(R.id.rdo_15);
-		rdo_30=item_view.findViewById(R.id.rdo_30);
-		rdo_45=item_view.findViewById(R.id.rdo_45);
-		rdo_60=item_view.findViewById(R.id.rdo_60);
+		rdo_30=item_view.findViewById(R.id.rdo_20);
+		rdo_45=item_view.findViewById(R.id.rdo_30);
+		rdo_60=item_view.findViewById(R.id.rdo_35);
 
 		lbl_message=item_view.findViewById(R.id.lbl_message);
 	}
@@ -108,7 +106,7 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 			@Override
 			public void onClick(View v) {
 				openAutoTimePicker(txt_wakeup_time,true);
-                //openTimePicker(txt_wakeup_time);
+				//openTimePicker(txt_wakeup_time);
 			}
 		});
 
@@ -116,7 +114,7 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 			@Override
 			public void onClick(View v) {
 				openAutoTimePicker(txt_bed_time,false);
-                //openTimePicker(txt_bed_time);
+				//openTimePicker(txt_bed_time);
 			}
 		});
 
@@ -178,13 +176,13 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 
 					//if(isValidDate())
 					//{
-						//Log.d("openAutoTimePicker : ", "" + from_hour + "  @@@@  " + from_minute);
-						//Log.d("openAutoTimePicker : ", "" + to_hour + "  @@@@  " + to_minute);
+					//Log.d("openAutoTimePicker : ", "" + from_hour + "  @@@@  " + from_minute);
+					//Log.d("openAutoTimePicker : ", "" + to_hour + "  @@@@  " + to_minute);
 
-						time = "" + hourOfDay + ":" + minute + ":" + "00";
-						dt = sdf.parse(time);
-						formatedDate = sdfs.format(dt);
-						appCompatTextView.setText("" + formatedDate);
+					time = "" + hourOfDay + ":" + minute + ":" + "00";
+					dt = sdf.parse(time);
+					formatedDate = sdfs.format(dt);
+					appCompatTextView.setText("" + formatedDate);
 					/*}
 					else
 					{
@@ -200,8 +198,6 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 							to_minute=0;
 							appCompatTextView.setText("10:00 PM");
 						}
-
-
 						ah.customAlert(sh.get_string(R.string.str_from_to_invalid_validation));
 					}*/
 
@@ -214,7 +210,7 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 			}
 		};
 
-        Calendar now = Calendar.getInstance();
+		Calendar now = Calendar.getInstance();
 
 		if(isFrom) {
 			now.set(Calendar.HOUR_OF_DAY, from_hour);
@@ -307,12 +303,10 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 		startTime.set(Calendar.HOUR_OF_DAY, from_hour);
 		startTime.set(Calendar.MINUTE, from_minute);
 		startTime.set(Calendar.SECOND,0);
-
 		Calendar endTime = Calendar.getInstance();
 		endTime.set(Calendar.HOUR_OF_DAY, to_hour);
 		endTime.set(Calendar.MINUTE, to_minute);
 		endTime.set(Calendar.SECOND,0);
-
 		if(startTime.getTimeInMillis()+100<endTime.getTimeInMillis())
 		{
 			return true;
@@ -345,7 +339,6 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 	{
 		/*Date date1 = parseDate(txt_bed_time.getText().toString());
 		Date date2 = parseDate(txt_wakeup_time.getText().toString());
-
 		long mills = date1.getTime() - date2.getTime();
 		int hours = (int) (mills/(1000 * 60 * 60));
 		int mins = (int) ((mills/(1000*60)) % 60);*/
@@ -400,18 +393,16 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 		//dth.getCurrentDate();
 	}
 
-	private Date parseDate(String date)
-	{
-		String inputFormat = "hh:mm aa";
+	private Date parseDate(String date) {
+        String inputFormat = "hh:mm aa";
 
-		//SimpleDateFormat inputParser = new SimpleDateFormat(inputFormat);
-		SimpleDateFormat inputParser = new SimpleDateFormat(inputFormat, Locale.US);
-		//SimpleDateFormat inputParser = new SimpleDateFormat(inputFormat, Locale.getDefault());
-		try {
-			return inputParser.parse(date);
-		} catch (java.text.ParseException e) {
-			return new Date(0);
-		}
-	}
-
+        //SimpleDateFormat inputParser = new SimpleDateFormat(inputFormat);
+        SimpleDateFormat inputParser = new SimpleDateFormat(inputFormat, Locale.US);
+        //SimpleDateFormat inputParser = new SimpleDateFormat(inputFormat, Locale.getDefault());
+        try {
+            return inputParser.parse(date);
+        } catch (java.text.ParseException e) {
+            return new Date(0);
+        }
+    }
 }

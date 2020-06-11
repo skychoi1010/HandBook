@@ -1,15 +1,14 @@
 package com.waterdiary.drinkreminder;
 
 import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.waterdiary.drinkreminder.adapter.ReportPagerAdapter;
 import com.waterdiary.drinkreminder.base.MasterBaseAppCompatActivity;
 import com.waterdiary.drinkreminder.custom.NonSwipeableViewPager;
@@ -77,7 +76,7 @@ public class Screen_Report extends MasterBaseAppCompatActivity
 
 	private void Body()
 	{
-		lbl_toolbar_title.setText(sh.get_string(R.string.str_drink_report));
+		lbl_toolbar_title.setText("Report");
 		left_icon_block.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

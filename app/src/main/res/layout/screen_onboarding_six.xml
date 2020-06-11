@@ -96,7 +96,7 @@
                 android:layout_marginTop="@dimen/dp_20">
 
                 <RadioButton
-                    android:id="@+id/rdo_15"
+                    android:id="@+id/rdo_push"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -106,7 +106,7 @@
                     android:fontFamily="@font/calibri_regular"/>
 
                 <RadioButton
-                    android:id="@+id/rdo_30"
+                    android:id="@+id/rdo_20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -118,7 +118,7 @@
                     android:fontFamily="@font/calibri_regular"/>
 
                 <RadioButton
-                    android:id="@+id/rdo_45"
+                    android:id="@+id/rdo_30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -129,7 +129,7 @@
                     android:fontFamily="@font/calibri_regular"/>
 
                 <RadioButton
-                    android:id="@+id/rdo_60"
+                    android:id="@+id/rdo_35"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"

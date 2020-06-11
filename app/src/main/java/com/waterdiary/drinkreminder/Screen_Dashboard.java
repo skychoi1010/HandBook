@@ -2,15 +2,11 @@ package com.waterdiary.drinkreminder;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.appwidget.AppWidgetManager;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -20,7 +16,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,35 +24,22 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.basic.appbasiclibs.utils.Constant;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -67,26 +49,15 @@ import com.waterdiary.drinkreminder.adapter.MenuAdapter;
 import com.waterdiary.drinkreminder.adapter.MyPageAdapter;
 import com.waterdiary.drinkreminder.adapter.SoundAdapter;
 import com.waterdiary.drinkreminder.base.MasterBaseAppCompatActivity;
-import com.waterdiary.drinkreminder.custom.InputFilterWeightRange;
 import com.waterdiary.drinkreminder.model.Container;
 import com.waterdiary.drinkreminder.model.Menu;
-import com.waterdiary.drinkreminder.model.NextReminderModel;
 import com.waterdiary.drinkreminder.model.SoundModel;
-import com.waterdiary.drinkreminder.mywidgets.NewAppWidget;
-import com.waterdiary.drinkreminder.utils.HeightWeightHelper;
 import com.waterdiary.drinkreminder.utils.URLFactory;
 
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Random;
 
 public class Screen_Dashboard extends MasterBaseAppCompatActivity
 {
@@ -176,7 +147,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 	LinearLayout open_profile;
 
-	FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
 	@Override
@@ -184,6 +154,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.screen_dashboard);
 
+		RelativeLayout bottle = findViewById(R.id.bottle);
+		bottle.setVisibility(View.INVISIBLE);
 		if (ph.getFloat(URLFactory.DAILY_WATER) == 0) {
 			URLFactory.DAILY_WATER_VALUE = 2500;
 		} else {
@@ -198,6 +170,14 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		FindViewById();
 
+		FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+		lbl_user_name = findViewById(R.id.lbl_user_name);
+
+		if(user.getDisplayName() != null){
+			lbl_user_name.setText(user.getDisplayName());
+		}
+		else
+			lbl_user_name.setText("Anonymous");
 		//next_reminder_block.setVisibility(View.INVISIBLE);
 		ringtone = RingtoneManager.getRingtone(mContext, Uri.parse("android.resource://" + mContext.getPackageName() + "/" + R.raw.fill_water_sound));
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -379,8 +359,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	}
 
 
-
-
 	public void initMenuScreen()
 	{
 		filter_cal=Calendar.getInstance();
@@ -390,14 +368,16 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		menuBody();
 
-		lbl_toolbar_title.setOnClickListener(new View.OnClickListener() {
+		/*lbl_toolbar_title.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				filter_cal.setTimeInMillis(today_cal.getTimeInMillis());
 				lbl_toolbar_title.setText(sh.get_string(R.string.str_today));
 				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 			}
-		});
+		});*/
+
+		FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 		if(user.getDisplayName() != null){
 			lbl_user_name.setText(user.getDisplayName());
 		}
@@ -408,23 +388,29 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 	public void menuBody()
 	{
 		btn_menu=findViewById(R.id.btn_menu);
-		btn_alarm=findViewById(R.id.btn_alarm);
-		lbl_toolbar_title=findViewById(R.id.lbl_toolbar_title);
-		img_pre=findViewById(R.id.img_pre);
-		img_next=findViewById(R.id.img_next);
+		//btn_alarm=findViewById(R.id.btn_alarm);
+		//lbl_toolbar_title=findViewById(R.id.lbl_toolbar_title);
+		//img_pre=findViewById(R.id.img_pre);
+		//img_next=findViewById(R.id.img_next);
 
 		//img_user=findViewById(R.id.img_user);
 		//open_profile=findViewById(R.id.open_profile);
 
-		btn_rate_us=findViewById(R.id.btn_rate_us);
-		btn_contact_us=findViewById(R.id.btn_contact_us);
+		//btn_rate_us=findViewById(R.id.btn_rate_us);
+		//btn_contact_us=findViewById(R.id.btn_contact_us);
 		mDrawerLayout = findViewById(R.id.drawer_layout);
 		mDrawerList = findViewById(R.id.left_drawer);
 		lbl_user_name=findViewById(R.id.lbl_user_name);
 
 		//loadPhoto();
-		lbl_toolbar_title.setText(sh.get_string(R.string.str_today));
+		//lbl_toolbar_title.setText(sh.get_string(R.string.str_today));
 
+		FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+		if(user.getDisplayName() != null){
+			lbl_user_name.setText(user.getDisplayName());
+		}
+		else
+			lbl_user_name.setText("Anonymous");
 
 		menu_name.clear();
 		menu_name.add(new Menu(sh.get_string(R.string.str_home),true));
@@ -434,8 +420,8 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		menu_name.add(new Menu(sh.get_string(R.string.str_health_tips),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_store),false));
 		//menu_name.add(new Menu(sh.get_string(R.string.str_faqs),false));
-		menu_name.add(new Menu(sh.get_string(R.string.str_privacy_policy),false));
 		menu_name.add(new Menu(sh.get_string(R.string.str_tell_a_friend),false));
+		menu_name.add(new Menu(sh.get_string(R.string.str_logout),false));
 
 		menuAdapter = new MenuAdapter(act, menu_name, new MenuAdapter.CallBack() {
 			@Override
@@ -467,22 +453,35 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				   intent=new Intent(act,Screen_FAQ.class);
 				   startActivity(intent);
 			   }*/
-				else if(position==5)
+				/*else if(position==5)
 				{
 					Intent i = new Intent(Intent.ACTION_VIEW);
 					i.setData(Uri.parse(URLFactory.PRIVACY_POLICY_ULR));
 					startActivity(i);
-				}
-				else if(position==6)
+				}*/
+				else if(position==5)
 				{
 					String str=sh.get_string(R.string.app_share_txt).replace("#1",URLFactory.APP_SHARE_URL);
-
 					ih.ShareText(getApplicationName(mContext),str);
 				}
+				else if(position==6)
+			   {
+				   FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+				   if (user != null) {
+					   // User is signed in
+					   FirebaseAuth.getInstance().signOut();
+					   Intent i = new Intent(Screen_Dashboard.this, handbook_start.class);
+					   i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+					   startActivity(i);
+				   } else {
+					   // User is signed out
+					   Toast.makeText(Screen_Dashboard.this, "You are already signed out", Toast.LENGTH_SHORT).show();
+				   }
+			   }
 			}
 		});
 
-		btn_rate_us.setOnClickListener(new View.OnClickListener() {
+		/*btn_rate_us.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				String appPackageName = getPackageName();
@@ -493,9 +492,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
 				}
 			}
-		});
+		});*/
 
-		btn_contact_us.setOnClickListener(new View.OnClickListener() {
+		/*btn_contact_us.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				try
@@ -507,7 +506,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				}
 				catch (Exception ex){}
 			}
-		});
+		});*/
 
 		mDrawerList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
@@ -525,12 +524,12 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		});*/
 
-		btn_alarm.setOnClickListener(new View.OnClickListener() {
+		/*btn_alarm.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				showReminderDialog();
 			}
-		});
+		});*/
 
 		btn_menu.setOnClickListener(new View.OnClickListener()
 		{
@@ -548,7 +547,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 		});
 
 
-		img_pre.setOnClickListener(new View.OnClickListener() {
+		/*img_pre.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
 			{
@@ -561,9 +560,9 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 			}
-		});
+		});*/
 
-		img_next.setOnClickListener(new View.OnClickListener() {
+		/*img_next.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				filter_cal.add(Calendar.DATE,1);
@@ -583,7 +582,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 				//setCustomDate(dth.getDate(filter_cal.getTimeInMillis(),URLFactory.DATE_FORMAT));
 
 			}
-		});
+		});*/
 
 	}
 /*
@@ -815,9 +814,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		add_water=findViewById(R.id.add_water);
 
-		container_name=findViewById(R.id.container_name);
-		img_selected_container=findViewById(R.id.img_selected_container);
-		selected_container_block=findViewById(R.id.selected_container_block);
+		//container_name=findViewById(R.id.container_name);
 		open_history=findViewById(R.id.open_history);
 
 		lbl_total_goal=findViewById(R.id.lbl_total_goal);
@@ -845,15 +842,6 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 
 		//count_today_drink(false);
 
-		selected_container_block.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				//openChangeContainerPicker();
-				intent=new Intent(act,Screen_Dashboard.class);
-				startActivity(intent);
-			}
-		});
-
 		open_history.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -865,7 +853,7 @@ public class Screen_Dashboard extends MasterBaseAppCompatActivity
 			}
 		});
 
-		img_selected_container.setVisibility(View.INVISIBLE);
+//		img_selected_container.setVisibility(View.INVISIBLE);
 		add_water.setVisibility(View.INVISIBLE);
 		next_reminder_block.setVisibility(View.INVISIBLE);
 		lbl_next_reminder.setVisibility(View.INVISIBLE);

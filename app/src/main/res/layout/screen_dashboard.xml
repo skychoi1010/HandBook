@@ -87,71 +87,6 @@
                             <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_marginStart="@dimen/dp_10"
-                                android:layout_marginTop="@dimen/dp_5"
-                                android:layout_marginBottom="@dimen/dp_10">
-
-                                <RelativeLayout
-                                    android:id="@+id/selected_container_block"
-                                    android:layout_width="@dimen/dp_50"
-                                    android:layout_height="@dimen/dp_50"
-                                    android:layout_alignParentStart="true"
-                                    android:background="@drawable/drawable_circle_unselected">
-
-                                    <LinearLayout
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical">
-
-                                        <RelativeLayout
-                                            android:layout_width="@dimen/dp_35"
-                                            android:layout_height="@dimen/dp_35"
-                                            android:layout_gravity="center_horizontal">
-
-                                            <ImageView
-                                                android:id="@+id/img_selected_container"
-                                                android:layout_width="22dp"
-                                                android:layout_height="31dp"
-                                                android:layout_gravity="center_horizontal"
-                                                android:adjustViewBounds="true"
-                                                android:scaleType="fitCenter"
-                                                android:src="@drawable/ic_700_ml"
-                                                app:srcCompat="@drawable/ic_menu_drink_water" />
-
-                                            <ImageView
-                                                android:id="@+id/img_home"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="38dp"
-                                                android:layout_alignParentBottom="true"
-                                                android:layout_centerVertical="false"
-                                                CircleProgressView:srcCompat="@drawable/ic_menu_drink_water" />
-
-                                        </RelativeLayout>
-
-                                    </LinearLayout>
-
-                                </RelativeLayout>
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/container_name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/selected_container_block"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"
-                                    android:fontFamily="@font/calibri_regular"
-                                    android:gravity="center_horizontal"
-                                    android:includeFontPadding="false"
-                                    android:text="Home"
-                                    android:textColor="@color/rdo_gender_select"
-                                    android:textSize="@dimen/dp_10" />
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginEnd="@dimen/dp_10"
                                 android:layout_marginTop="@dimen/dp_5"
@@ -197,18 +132,20 @@
                             </RelativeLayout>
 
                             <RelativeLayout
+                                android:id="@+id/bottle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/dp_280"
-                                android:layout_centerInParent="true">
+                                android:layout_centerInParent="true"
+                                tools:visibility="invisible">
 
                                 <ImageView
                                     android:layout_width="170dp"
                                     android:layout_height="wrap_content"
-                                    android:scaleType="fitXY"
-                                    android:layout_centerHorizontal="true"
                                     android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
                                     android:background="@color/app_transparant"
-                                    android:src="@drawable/ic_bottle_base"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_bottle_base" />
 
                                 <LinearLayout
                                     android:layout_width="@dimen/dp_87"
@@ -219,14 +156,14 @@
                                     <View
                                         android:layout_width="fill_parent"
                                         android:layout_height="fill_parent"
-                                        android:background="#FEFFFE"
-                                        android:layout_weight="1"/>
+                                        android:layout_weight="1"
+                                        android:background="#FEFFFE" />
 
                                     <View
                                         android:layout_width="fill_parent"
                                         android:layout_height="fill_parent"
-                                        android:background="#EAEBEA"
-                                        android:layout_weight="1"/>
+                                        android:layout_weight="1"
+                                        android:background="#EAEBEA" />
 
                                 </LinearLayout>
 
@@ -241,27 +178,29 @@
                                         android:id="@+id/content_frame_test"
                                         android:layout_width="@dimen/dp_87"
                                         android:layout_height="@dimen/dp_250"
-                                        android:background="@color/app_transparant">
+                                        android:background="@color/app_transparant"
+                                        tools:visibility="invisible">
 
                                         <com.airbnb.lottie.LottieAnimationView
                                             android:id="@+id/animationView"
                                             android:layout_width="@dimen/dp_87"
                                             android:layout_height="10dp"
-                                            android:scaleType="fitXY"
                                             android:layout_above="@+id/content_frame"
-                                            app:lottie_autoPlay="true"
+                                            android:layout_gravity="center"
                                             android:layout_marginBottom="-2dp"
+                                            android:scaleType="fitXY"
+                                            app:lottie_autoPlay="true"
                                             app:lottie_loop="true"
-                                            app:lottie_repeatMode="reverse"
                                             app:lottie_rawRes="@raw/ios_waves"
-                                            android:layout_gravity="center"/>
+                                            app:lottie_repeatMode="reverse"
+                                            tools:visibility="invisible" />
 
                                         <RelativeLayout
                                             android:id="@+id/content_frame"
                                             android:layout_width="fill_parent"
                                             android:layout_height="0dp"
-                                            android:background="@color/water_color"
-                                            android:layout_alignParentBottom="true">
+                                            android:layout_alignParentBottom="true"
+                                            android:background="@color/water_color">
 
                                         </RelativeLayout>
 
@@ -272,10 +211,10 @@
                                 <ImageView
                                     android:layout_width="@dimen/dp_87"
                                     android:layout_height="@dimen/dp_270"
-                                    android:scaleType="fitXY"
                                     android:layout_centerHorizontal="true"
                                     android:background="@color/app_transparant"
-                                    android:src="@drawable/ic_new_bottle"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_new_bottle" />
 
                             </RelativeLayout>
 
@@ -497,41 +436,24 @@
                     android:layout_marginStart="@dimen/dp_20"
                     android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_width="@dimen/dp_60"
-                        android:layout_height="@dimen/dp_60"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/custom_thumb"
-                        android:backgroundTint="@color/profile_user_menu_circle_border" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/dp_10">
+                        android:fontFamily="@font/calibri_light"
+                        android:includeFontPadding="true"
+                        android:text="@string/str_hello"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp_16" />
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:includeFontPadding="true"
-                            android:text="@string/str_hello"
-                            android:textSize="@dimen/dp_16"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/calibri_light"
-                            />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/lbl_user_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:includeFontPadding="true"
-                            android:textSize="@dimen/dp_17"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/calibri_bold"
-                            />
-
-                    </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/calibri_bold"
+                        android:includeFontPadding="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp_17" />
 
                 </LinearLayout>
 
@@ -566,63 +488,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/dp_10"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/btn_rate_us"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/drawable_button_new"
-                android:layout_weight="1"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_5">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:includeFontPadding="true"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:text="@string/str_rate_us"
-                    android:textSize="@dimen/dp_15"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/calibri_light"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btn_contact_us"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/drawable_button_new"
-                android:backgroundTint="#7AC5C1"
-                android:layout_weight="1"
-                android:layout_marginStart="@dimen/dp_5"
-                android:layout_marginEnd="@dimen/dp_10">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:includeFontPadding="true"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:text="@string/str_contact"
-                    android:textSize="@dimen/dp_15"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/calibri_light"/>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
     </RelativeLayout>
 
