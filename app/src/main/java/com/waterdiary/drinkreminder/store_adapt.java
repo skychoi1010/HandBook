@@ -43,7 +43,7 @@ public class store_adapt extends ArrayAdapter<coupon_class> {
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         String Path= Objects.requireNonNull(getItem(position)).path; //getcontent();
-        String cost= Objects.requireNonNull(getItem(position)).cost; //getread();
+        Long cost= Objects.requireNonNull(getItem(position)).cost; //getread();
         String isUsed= Objects.requireNonNull(getItem(position)).isUsed; //gettitle();
 
         coupon_class coupon = new coupon_class(cost,isUsed,Path);
@@ -54,7 +54,7 @@ public class store_adapt extends ArrayAdapter<coupon_class> {
         TextView hos = (TextView) convertView.findViewById(R.id.coin);
         TextView ho = (TextView) convertView.findViewById(R.id.img);
         getImage(Path,image);
-        hos.setText(cost);
+        hos.setText(String.valueOf(cost));
         ho.setText(Path);
         Log.d("flower"+Path, "getView");
 

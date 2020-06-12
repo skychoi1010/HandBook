@@ -64,24 +64,24 @@ public class handbook_balcheck extends MasterBaseActivity {
         coins.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                final String name1 = dataSnapshot.child("coins").getValue(String.class);
+                final Long name1 = dataSnapshot.child("coins").getValue(Long.class);
                 assert name1 != null;
                 TextView tp = (TextView)findViewById(R.id.totpoint);
-                tp.setText(name1);
+                tp.setText(String.valueOf(name1));
                 TextView cp = (TextView)findViewById(R.id.coupcost);
                 cp.setText(coupon_cost);
                 TextView np = (TextView)findViewById(R.id.new_bal);
-                np.setText(String.valueOf(Long.parseLong(name1)-Long.parseLong(coupon_cost)));
+                np.setText(String.valueOf(name1-Long.parseLong(coupon_cost)));
                 ImageView v=(ImageView)findViewById(R.id.imageView14);
                 getImage(img,v);
                 buyco.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //setContentView(R.layout.handbook_balcheck);
-                        Long val= Long.parseLong(name1)-Long.parseLong(coupon_cost);
+                        Long val= (name1)-Long.parseLong(coupon_cost);
 
                         if (val > 0) {
-                            coins.child("coins").setValue(String.valueOf(val));
+                            coins.child("coins").setValue(val);
                             //coup.child("isUsed").setValue("True");
                             Intent intent1= new Intent(getApplicationContext(),handbook_store.class);
                             startActivity(intent1);
