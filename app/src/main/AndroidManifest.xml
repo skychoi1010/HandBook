@@ -63,6 +63,7 @@
             android:windowSoftInputMode="adjustNothing"/>
         <activity android:name="com.waterdiary.drinkreminder.worker.handbook_hospitaldata"/>
         <activity android:name="com.waterdiary.drinkreminder.handbook_news" />
+        <activity android:name="com.waterdiary.drinkreminder.coupon_class" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_newsclass" />
         <activity android:name="com.waterdiary.drinkreminder.NewsListAdapter" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_History" />
