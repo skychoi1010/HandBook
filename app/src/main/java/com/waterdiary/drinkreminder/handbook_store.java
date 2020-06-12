@@ -1,9 +1,12 @@
 package com.waterdiary.drinkreminder;
 
+        import android.content.Intent;
         import android.os.Bundle;
         import android.util.Log;
-        import android.widget.ArrayAdapter;
+        import android.view.View;
+        import android.widget.AdapterView;
         import android.widget.ListView;
+        import android.widget.TextView;
 
         import androidx.annotation.NonNull;
 
@@ -20,7 +23,7 @@ package com.waterdiary.drinkreminder;
 public class handbook_store extends MasterBaseActivity {
     ListView nListView;
     DatabaseReference nDatabase;
-    ArrayList coup_list = new ArrayList<>();
+    ArrayList<coupon_class> coup_list = new ArrayList<>();
     store_adapt adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,14 @@ public class handbook_store extends MasterBaseActivity {
         final ValueEventListener postListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    //coup_list.clear();
                     for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                         coupon_class coupon=childDataSnapshot.getValue(coupon_class.class);
                         assert coupon != null;
-                        coup_list.add(coupon);
-                        adapter.notifyDataSetChanged();
+                        if (coupon.isUsed.equals("False")){
+                            coup_list.add(coupon);
+                            adapter.notifyDataSetChanged();
+                        }
                         Log.d("meowkers", coupon.path+"  "+coupon.isUsed+"   "+coupon.cost);
                     }
                 }
@@ -50,15 +56,21 @@ public class handbook_store extends MasterBaseActivity {
                 }
         };
         nDatabase.child("/coupons").addValueEventListener(postListener);
-
-        /*ImageView storebal = findViewById(R.id.co1);
-        storebal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), handbook_balcheck.class);
+        nListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                TextView textView = (TextView) view.findViewById(R.id.coin);
+                String text = textView.getText().toString();
+                TextView tex = (TextView) view.findViewById(R.id.img);
+                String text2 = tex.getText().toString();
+                Log.d("spacesk", text);
+                Intent intent = new Intent(handbook_store.this,handbook_balcheck.class);
+                intent.putExtra("coin",text);
+                intent.putExtra("img",text2);
+                Log.d("spacesk", text+"hhfhjhj");
                 startActivity(intent);
-            }
-        });*/
 
+            }});
     }
+
 }

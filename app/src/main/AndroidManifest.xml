@@ -66,6 +66,7 @@
         <activity android:name="com.waterdiary.drinkreminder.worker.coupon_class" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_newsclass" />
         <activity android:name="com.waterdiary.drinkreminder.NewsListAdapter" />
+        <activity android:name="com.waterdiary.drinkreminder.worker.user_coin" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_History" />
         <activity android:name="com.waterdiary.drinkreminder.hospadapter" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_doc_map" />
