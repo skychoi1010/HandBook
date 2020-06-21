@@ -10,6 +10,8 @@ package com.waterdiary.drinkreminder;
 
         import androidx.annotation.NonNull;
 
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.auth.FirebaseUser;
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
         import com.google.firebase.database.DatabaseReference;
@@ -19,6 +21,8 @@ package com.waterdiary.drinkreminder;
         import com.waterdiary.drinkreminder.worker.coupon_class;
 
         import java.util.ArrayList;
+        import java.util.Arrays;
+        import java.util.List;
 
 public class handbook_store extends MasterBaseActivity {
     ListView nListView;
@@ -34,25 +38,24 @@ public class handbook_store extends MasterBaseActivity {
         nDatabase.keepSynced(true);
         adapter=  new store_adapt(this,R.layout.store_view,coup_list);
         nListView.setAdapter(adapter);
-        Log.d("meo", "monkeys");
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final ValueEventListener postListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     //coup_list.clear();
                     for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                        coupon_class coupon=childDataSnapshot.getValue(coupon_class.class);
-                        assert coupon != null;
-                        if (coupon.isUsed.equals("False")){
+                            String key= childDataSnapshot.getKey();
+                            coupon_class coupon= childDataSnapshot.child("cd").getValue(coupon_class.class);
+                            //coupon_class coupon= new coupon_class((long) 20,"coupon1");
+                            //coupon_class coupon=childDataSnapshot.getValue(coupon_class.class);
                             coup_list.add(coupon);
+                            //Log.d("5:10", String.valueOf(coupon));
+                            Log.d("5:10", coupon.path+key);
                             adapter.notifyDataSetChanged();
-                        }
-                        Log.d("meowkers", coupon.path+"  "+coupon.isUsed+"   "+coupon.cost);
                     }
                 }
-
                 @Override
                 public void onCancelled (DatabaseError databaseError){
-
                 }
         };
         nDatabase.child("/coupons").addValueEventListener(postListener);
@@ -63,13 +66,11 @@ public class handbook_store extends MasterBaseActivity {
                 String text = textView.getText().toString();
                 TextView tex = (TextView) view.findViewById(R.id.img);
                 String text2 = tex.getText().toString();
-                Log.d("spacesk", text);
                 Intent intent = new Intent(handbook_store.this,handbook_balcheck.class);
                 intent.putExtra("coin",text);
                 intent.putExtra("img",text2);
-                Log.d("spacesk", text+"hhfhjhj");
                 startActivity(intent);
-
+                finish();
             }});
     }
 

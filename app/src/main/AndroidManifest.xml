@@ -73,6 +73,7 @@
         <activity android:name="com.waterdiary.drinkreminder.Screen_Settings" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_maps" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_Report" />
+        <activity android:name="com.waterdiary.drinkreminder.barcoup" />
 
         <activity android:name="com.waterdiary.drinkreminder.Screen_Reminder" />
 

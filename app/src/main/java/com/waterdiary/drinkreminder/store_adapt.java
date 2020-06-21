@@ -42,28 +42,26 @@ public class store_adapt extends ArrayAdapter<coupon_class> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        String Path= Objects.requireNonNull(getItem(position)).path; //getcontent();
+        String path= Objects.requireNonNull(getItem(position)).path; //getcontent();
         Long cost= Objects.requireNonNull(getItem(position)).cost; //getread();
-        String isUsed= Objects.requireNonNull(getItem(position)).isUsed; //gettitle();
+       // String isUsed= Objects.requireNonNull(getItem(position)).isUsed; //gettitle();
 
-        coupon_class coupon = new coupon_class(cost,isUsed,Path);
+        coupon_class coupon = new coupon_class(cost,path);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView=inflater.inflate(mResource,parent,false);
         ImageView image =(ImageView)convertView.findViewById(R.id.coupon_id);
         TextView hos = (TextView) convertView.findViewById(R.id.coin);
         TextView ho = (TextView) convertView.findViewById(R.id.img);
-        getImage(Path,image);
+        getImage(path,image);
         hos.setText(String.valueOf(cost));
-        ho.setText(Path);
-        Log.d("flower"+Path, "getView");
-
+        ho.setText(path);
         return convertView;
     }
     public void getImage(String Path, final ImageView image){
         final FirebaseStorage storage  = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-        StorageReference pathReference = storageRef.child(Path);
+        StorageReference pathReference = storageRef.child(Path+".jpg");
         // Load the image using Glide
 
         pathReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {

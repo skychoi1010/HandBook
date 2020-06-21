@@ -30,7 +30,7 @@ import com.waterdiary.drinkreminder.worker.coupon_class;
 import com.waterdiary.drinkreminder.worker.user_coin;
 
 public class handbook_balcheck extends MasterBaseActivity {
-    DatabaseReference coins;
+    DatabaseReference userd,coupon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,20 +48,13 @@ public class handbook_balcheck extends MasterBaseActivity {
         }
         assert user != null;
         final String userId = user.getUid();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        coins = database.getReference().child("UserData").child(userId);
-        coins.keepSynced(true);
-        //coup= database.getReference().child("coupons");
-        //coup.keepSynced(true);
-        //userdata.child("longitude").setValue(longitude);
-        //userdata.child("latitude").setValue(latitude);
-        //ChildEventListener coin = coins.addChildEventListener((ChildEventListener) coins);
-        //ValueEventListener coin = coins.addValueEventListener((ValueEventListener) coins);
-        //Log.d("balch", String.valueOf(coin));
-        //nDatabase = FirebaseDatabase.getInstance().getReference(userId);
-        //nDatabase.keepSynced(true);
-        Log.d("coin_bala", String.valueOf(coins));
-        coins.addValueEventListener(new ValueEventListener() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        userd = database.getReference().child("UserData").child(userId);
+        userd.keepSynced(true);
+        assert img != null;
+        coupon = database.getReference().child("coupons").child(img).child("coupons");
+        Log.d("coin_bala", String.valueOf(userd));
+        userd.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 final Long name1 = dataSnapshot.child("coins").getValue(Long.class);
@@ -70,26 +63,63 @@ public class handbook_balcheck extends MasterBaseActivity {
                 tp.setText(String.valueOf(name1));
                 TextView cp = (TextView)findViewById(R.id.coupcost);
                 cp.setText(coupon_cost);
+                final Long val= (name1)-Long.parseLong(coupon_cost);
                 TextView np = (TextView)findViewById(R.id.new_bal);
-                np.setText(String.valueOf(name1-Long.parseLong(coupon_cost)));
+                if (val>0){
+                    np.setText(String.valueOf(name1-Long.parseLong(coupon_cost)));
+                }
+                else {
+                np.setText("0");
+                }
                 ImageView v=(ImageView)findViewById(R.id.imageView14);
                 getImage(img,v);
+
+                assert img != null;
+                Log.d("tagmyimagecoup", img);
                 buyco.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //setContentView(R.layout.handbook_balcheck);
-                        Long val= (name1)-Long.parseLong(coupon_cost);
-
                         if (val > 0) {
-                            coins.child("coins").setValue(val);
-                            //coup.child("isUsed").setValue("True");
-                            Intent intent1= new Intent(getApplicationContext(),handbook_store.class);
-                            startActivity(intent1);
+                            userd.child("coins").setValue(val);
+                            //userd.child("coupons").child(img).setValue("bought");
+                            coupon.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    int i=0;
+                                    for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
+                                        {
+                                            String ckey= childDataSnapshot.getKey();
+                                            final String coup = childDataSnapshot.child("path").getValue(String.class);
+                                            String use = childDataSnapshot.child("isUsed").getValue(String.class);
+                                            if(use.equals("")){
+                                                coupon.child(ckey).child("isUsed").setValue(userId);
+                                                Log.d("missfor", "flagged");
+                                                i=1;
+                                                Intent SCoupon= new Intent(handbook_balcheck.this,barcoup.class);
+                                                SCoupon.putExtra("bar",coup);
+                                                SCoupon.putExtra("img",img);
+                                                startActivity(SCoupon);
+                                                break;
+                                            }
+
+
+
+                                    }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                            /*Log.d("break", "lelz");
+                            database.getReference().child("coupons").child(img);*/
+                            finish();
                         }
                         else{
                             Toast.makeText(getApplicationContext(), "Not enough coins", Toast.LENGTH_SHORT).show();
-                            Intent intent1= new Intent(getApplicationContext(),handbook_store.class);
-                            startActivity(intent1);
+                            finish();
                         }
                     }
                 });
@@ -105,7 +135,7 @@ public class handbook_balcheck extends MasterBaseActivity {
     public void getImage(String Path, final ImageView image){
         final FirebaseStorage storage  = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-        StorageReference pathReference = storageRef.child(Path);
+        StorageReference pathReference = storageRef.child(Path+".jpg");
         // Load the image using Glide
 
         pathReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {

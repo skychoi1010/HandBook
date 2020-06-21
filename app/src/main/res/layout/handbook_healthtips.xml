@@ -10,21 +10,21 @@
     <TextView
         android:id="@+id/healthTips"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
+        android:layout_height="@dimen/dp_40"
         android:background="@color/water_color"
         android:gravity="center"
         android:text="@string/health_tips"
         android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/healthTipsIMG"
+    <ListView
+        android:id="@+id/tipslis"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="@dimen/dp_150" />
 
     <TextView
         android:id="@+id/news"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
+        android:layout_height="@dimen/dp_40"
         android:layout_gravity="center"
         android:background="#E4447A"
         android:gravity="center"
@@ -34,12 +34,12 @@
     <ListView
         android:id="@+id/newslist"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_200" />
+        android:layout_height="@dimen/dp_150" />
 
     <TextView
         android:id="@+id/docsNearby"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
+        android:layout_height="@dimen/dp_40"
         android:background="#A2CACF"
         android:gravity="center"
         android:text="Doctors nearby"
@@ -48,13 +48,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="159dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ListView
             android:id="@+id/hosp_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="@dimen/dp_150" />
 
     </LinearLayout>
 
