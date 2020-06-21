@@ -29,6 +29,11 @@ import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 import com.waterdiary.drinkreminder.worker.coupon_class;
 import com.waterdiary.drinkreminder.worker.user_coin;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class handbook_balcheck extends MasterBaseActivity {
     DatabaseReference userd,coupon;
     @Override
@@ -54,6 +59,11 @@ public class handbook_balcheck extends MasterBaseActivity {
         assert img != null;
         coupon = database.getReference().child("coupons").child(img).child("coupons");
         Log.d("coin_bala", String.valueOf(userd));
+        //final Date date = Calendar.getInstance().getTime();
+        //final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        final String date = java.text.DateFormat.getDateTimeInstance().format(new Date());
+        System.out.println("Current time => " + date);
+
         userd.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -80,20 +90,21 @@ public class handbook_balcheck extends MasterBaseActivity {
                     @Override
                     public void onClick(View view) {
                         if (val > 0) {
-                            userd.child("coins").setValue(val);
-                            //userd.child("coupons").child(img).setValue("bought");
                             coupon.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    int i=0;
+                                    long i=0;
+                                    long count= dataSnapshot.getChildrenCount();
                                     for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
-                                        {
+
                                             String ckey= childDataSnapshot.getKey();
                                             final String coup = childDataSnapshot.child("path").getValue(String.class);
                                             String use = childDataSnapshot.child("isUsed").getValue(String.class);
                                             if(use.equals("")){
                                                 coupon.child(ckey).child("isUsed").setValue(userId);
-                                                Log.d("missfor", "flagged");
+                                                coupon.child(ckey).child("date").setValue(date);
+                                                //Log.d("missfor", "flagged");
+                                                userd.child("coins").setValue(val);
                                                 i=1;
                                                 Intent SCoupon= new Intent(handbook_balcheck.this,barcoup.class);
                                                 SCoupon.putExtra("bar",coup);
@@ -101,10 +112,11 @@ public class handbook_balcheck extends MasterBaseActivity {
                                                 startActivity(SCoupon);
                                                 break;
                                             }
-
-
-
-                                    }
+                                            else if(i==count-1)
+                                            {Toast.makeText(getApplicationContext(), "Sorry this coupon is not available.\n Please try again later.", Toast.LENGTH_SHORT).show();
+                                            }
+                                            else{
+                                            i+=1;}
                                     }
                                 }
 
@@ -112,9 +124,8 @@ public class handbook_balcheck extends MasterBaseActivity {
                                 public void onCancelled(DatabaseError databaseError) {
 
                                 }
-                            });
-                            /*Log.d("break", "lelz");
-                            database.getReference().child("coupons").child(img);*/
+                            }
+                            );
                             finish();
                         }
                         else{

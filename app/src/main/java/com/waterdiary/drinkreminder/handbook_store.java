@@ -29,6 +29,7 @@ public class handbook_store extends MasterBaseActivity {
     DatabaseReference nDatabase;
     ArrayList<coupon_class> coup_list = new ArrayList<>();
     store_adapt adapter;
+    TextView history;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,7 @@ public class handbook_store extends MasterBaseActivity {
         nDatabase.keepSynced(true);
         adapter=  new store_adapt(this,R.layout.store_view,coup_list);
         nListView.setAdapter(adapter);
+        history=findViewById(R.id.textView4);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final ValueEventListener postListener = new ValueEventListener() {
                 @Override
@@ -46,10 +48,7 @@ public class handbook_store extends MasterBaseActivity {
                     for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                             String key= childDataSnapshot.getKey();
                             coupon_class coupon= childDataSnapshot.child("cd").getValue(coupon_class.class);
-                            //coupon_class coupon= new coupon_class((long) 20,"coupon1");
-                            //coupon_class coupon=childDataSnapshot.getValue(coupon_class.class);
                             coup_list.add(coupon);
-                            //Log.d("5:10", String.valueOf(coupon));
                             Log.d("5:10", coupon.path+key);
                             adapter.notifyDataSetChanged();
                     }
@@ -72,6 +71,13 @@ public class handbook_store extends MasterBaseActivity {
                 startActivity(intent);
                 finish();
             }});
-    }
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(),coup_his.class);
+                startActivity(in);
+            }
+    });
 
+}
 }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/aasd"
         android:layout_width="261dp"
         android:layout_height="80dp"
         android:gravity="center"

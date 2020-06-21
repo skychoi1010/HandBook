@@ -62,6 +62,8 @@
         <activity android:name="com.waterdiary.drinkreminder.Screen_OnBoarding"
             android:windowSoftInputMode="adjustNothing"/>
         <activity android:name="com.waterdiary.drinkreminder.worker.handbook_hospitaldata"/>
+        <activity android:name="com.waterdiary.drinkreminder.worker.coup_user"/>
+        <activity android:name="com.waterdiary.drinkreminder.worker.coup_u"/>
         <activity android:name="com.waterdiary.drinkreminder.handbook_news" />
         <activity android:name="com.waterdiary.drinkreminder.worker.coupon_class" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_newsclass" />
@@ -74,6 +76,7 @@
         <activity android:name="com.waterdiary.drinkreminder.handbook_maps" />
         <activity android:name="com.waterdiary.drinkreminder.Screen_Report" />
         <activity android:name="com.waterdiary.drinkreminder.barcoup" />
+        <activity android:name="com.waterdiary.drinkreminder.coup_his" />
 
         <activity android:name="com.waterdiary.drinkreminder.Screen_Reminder" />
 
