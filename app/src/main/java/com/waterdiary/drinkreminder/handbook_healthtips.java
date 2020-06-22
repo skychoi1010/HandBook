@@ -1,11 +1,14 @@
 package com.waterdiary.drinkreminder;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.waterdiary.drinkreminder.R;
@@ -58,10 +61,11 @@ public class handbook_healthtips extends MasterBaseActivity {
     double longitude;
     DatabaseReference nDatabase;
     hospadapter adap;
-    ListView nListView;
+    ListView nListView,pListView;
     ArrayList<News> news_list = new ArrayList<>();
     DatabaseReference mDatabase;
     NewsListAdapter adapter;
+    coup_adapter ada;
     ListView mListView;
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
@@ -74,11 +78,12 @@ public class handbook_healthtips extends MasterBaseActivity {
             nDatabase = FirebaseDatabase.getInstance().getReference();
             nDatabase.keepSynced(true);
             nListView = (ListView) findViewById(R.id.hosp_list);
-
+            //pListView =(ListView) findViewById(R.id.tipslis);
             adap = new hospadapter(this, R.layout.handbook_hosp, hosp_near);
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.keepSynced(true);
             adapter = new NewsListAdapter(this, R.layout.handbook_newslist, news_list);
+
             mListView.setAdapter(adapter);
             getFirebaseNews();
             nListView.setAdapter(adap);
@@ -86,6 +91,22 @@ public class handbook_healthtips extends MasterBaseActivity {
             Log.d("we back yo", "onCreate: we back");
             mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             getLastLocation();
+            mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                TextView textView = (TextView) view.findViewById(R.id.link);
+                final String text = textView.getText().toString();
+               // TextView txt= (TextView) findViewById(R.id.home); //txt is object of TextView
+                textView.setMovementMethod(LinkMovementMethod.getInstance());
+                textView.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+                        browserIntent.setData(Uri.parse(text));
+                        startActivity(browserIntent);
+                    }
+                });
+                finish();
+            }});
             Tips.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -261,7 +282,6 @@ public class handbook_healthtips extends MasterBaseActivity {
             }
         }
     }
-
     /*@Override
     public void onResume(){
         super.onResume();

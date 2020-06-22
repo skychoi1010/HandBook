@@ -11,7 +11,7 @@
             android:id="@+id/newstitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="45"
+            android:layout_weight="25"
             android:gravity="center|start"
             android:textAlignment="center"
             android:textSize="@dimen/dp_20" />
@@ -20,7 +20,7 @@
         android:id="@+id/newsubtitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="45"
+        android:layout_weight="80"
         android:gravity="center_horizontal|left|center_vertical"
         android:textSize="14sp" />
 
@@ -32,17 +32,19 @@
 
         <TextView
             android:id="@+id/link"
-            android:layout_width="@dimen/dp_250"
+            android:layout_width="@dimen/dp_315"
             android:layout_height="match_parent"
             android:gravity="center|left"
             android:textAlignment="center"
+            android:autoLink="web"
             android:textSize="@dimen/dp_10" />
 
         <TextView
             android:id="@+id/read"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/dp_1"
             android:layout_height="match_parent"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
