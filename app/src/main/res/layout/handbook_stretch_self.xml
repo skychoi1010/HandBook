@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <include
+            layout="@layout/header_with_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_10">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="Follow the stretch pose below for"
+            android:textSize="22sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:padding="@dimen/dp_10"
+            android:text="5"
+            android:textColor="@color/rdo_gender_select"
+            android:textSize="50sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="seconds"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/stretch_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/start"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/rdo_gender_select"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="Start stretching"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/water_color"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/skipThis"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="30dp"
+            android:background="@color/black_transparent"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="Skip this one"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

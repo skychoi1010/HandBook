@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:padding="15dp"
+        android:text="You will be notified every"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="20"
+            android:textColor="@color/rdo_gender_select"
+            android:textSize="@dimen/dp_35" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="minutes"
+            android:textColor="@color/rdo_gender_select"
+            android:textSize="@dimen/dp_25" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:padding="15dp"
+        android:text="while you are using\n this device with your hand"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="You can adjust your"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_bold"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="Notification Interval"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdo_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:fontFamily="@font/calibri_regular"
+                android:text="15 Mins"
+                android:textColor="@drawable/rdo_back_3" />
+
+            <RadioButton
+                android:id="@+id/rdo_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/calibri_regular"
+                android:text="20 Mins"
+                android:textColor="@drawable/rdo_back_3" />
+
+            <RadioButton
+                android:id="@+id/rdo_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:fontFamily="@font/calibri_regular"
+                android:text="30 Mins"
+                android:textColor="@drawable/rdo_back_3" />
+
+            <RadioButton
+                android:id="@+id/rdo_35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:fontFamily="@font/calibri_regular"
+                android:text="35 Mins"
+                android:textColor="@drawable/rdo_back_3" />
+
+        </RadioGroup>
+
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="and also your"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbl_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_bold"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="Notification Type"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="24sp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_5"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdo_push"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:fontFamily="@font/calibri_regular"
+                android:text="Push"
+                android:textColor="@drawable/rdo_back_3" />
+
+            <RadioButton
+                android:id="@+id/rdo_vibrate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/calibri_regular"
+                android:text="Vibrate"
+                android:textColor="@drawable/rdo_back_3" />
+
+            <RadioButton
+                android:id="@+id/rdo_LED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                android:background="@drawable/rdo_back_3"
+                android:button="@null"
+                android:fontFamily="@font/calibri_regular"
+                android:text="LED"
+                android:textColor="@drawable/rdo_back_3" />
+
+        </RadioGroup>
+
+    </HorizontalScrollView>
+
+</LinearLayout>
