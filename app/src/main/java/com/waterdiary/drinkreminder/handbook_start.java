@@ -86,7 +86,6 @@ public class handbook_start extends MasterBaseAppCompatActivity {
             public void onClick(View view) {
                 String email_str = email.getText().toString().trim();
                 String pwd_str = pwd.getText().toString().trim();
-
                 mAuth.signInWithEmailAndPassword(email_str, pwd_str)
                         .addOnCompleteListener(handbook_start.this, new OnCompleteListener<AuthResult>() {
                             @Override

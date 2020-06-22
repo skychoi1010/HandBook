@@ -159,15 +159,11 @@ public class handbook_healthtips extends MasterBaseActivity {
                                                 int distance=calculateDistanceInKilometer(location.getLatitude(),location.getLongitude(),Double.parseDouble(hosp.lat),Double.parseDouble(hosp.lon));
                                                 map.put(distance,hosp.name);
                                             }
-                                            Log.d("powowowow", "onDataChange: ");
-                                            System.out.println("ㅁㄴㅇㅁㄴㅇㅁ");
-                                            System.out.print(map);
-                                            SortedMap<Integer, String> cutmap = map.subMap(0,50);
+                                            SortedMap<Integer, String> cutmap = map.subMap(0,25);
                                             for (final Map.Entry<Integer, String> pair : cutmap.entrySet()) {
                                                 final ValueEventListener postListener = new ValueEventListener() {
                                                     @Override
                                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                        hosp_near.clear();
                                                         for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                                                             handbook_hospitaldata hosp = childDataSnapshot.getValue(handbook_hospitaldata.class);
                                                             assert hosp != null;
@@ -266,13 +262,13 @@ public class handbook_healthtips extends MasterBaseActivity {
         }
     }
 
-    @Override
+    /*@Override
     public void onResume(){
         super.onResume();
         if (checkPermissions()) {
             getLastLocation();
         }
 
-    }
+    }*/
 
 }
