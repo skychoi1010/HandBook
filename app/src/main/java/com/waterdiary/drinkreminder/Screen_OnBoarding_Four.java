@@ -3,9 +3,6 @@ package com.waterdiary.drinkreminder;
 import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatTextView;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -17,6 +14,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.waterdiary.drinkreminder.base.MasterBaseFragment;
 import com.waterdiary.drinkreminder.custom.InputFilterWeightRange;
@@ -114,12 +114,12 @@ public class Screen_OnBoarding_Four extends MasterBaseFragment
 			calculate_goal();
 		}
 
-		lbl_set_goal_manually.setOnClickListener(new View.OnClickListener() {
+		/*lbl_set_goal_manually.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				showSetManuallyGoalDialog();
 			}
-		});
+		});*/
 	}
 
 	public void calculate_goal()

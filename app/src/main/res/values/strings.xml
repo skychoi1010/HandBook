@@ -206,7 +206,7 @@
     <string name="str_camera">Choose from Camera</string>
     <string name="str_gallery">Choose from Gallery</string>
     <string name="str_remove_photo">Remove Photo</string>
-    <string name="app_share_txt">I have been using Water Diary and I think you might like it. Check it out on your phone: #1</string>
+    <string name="app_share_txt">I have been using HandBook and I think you might like it. Check it out on your phone: #1</string>
     <string name="str_remove_photo_confirmation_message">Are you sure? Do you want to remove profile photo?</string>
 
     <!-- notification -->

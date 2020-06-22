@@ -28,15 +28,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="@dimen/dp_30"
             android:fontFamily="@font/calibri_bold"
             android:gravity="center"
             android:includeFontPadding="true"
             android:padding="@dimen/dp_10"
-            android:text="Let's Stretch!"
+            android:text="Time to Stretch!"
             android:textColor="@color/rdo_gender_select"
-            android:textSize="60sp" />
+            android:textSize="50sp" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -61,7 +61,7 @@
             android:textSize="22sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/game"
+            android:id="@+id/gameStretch"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:layout_centerHorizontal="true"
@@ -76,19 +76,34 @@
             android:textSize="24sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/self"
+        android:id="@+id/selfStretch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/water_color"
+        android:fontFamily="@font/calibri_bold"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="Stretch on my own"
+        android:textColor="@color/white"
+        android:textSize="24sp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/skipNow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/dp_10"
-            android:background="@color/water_color"
+            android:background="@color/black_transparent"
             android:fontFamily="@font/calibri_bold"
             android:gravity="center"
             android:includeFontPadding="true"
-            android:text="Stretch on my own"
+            android:text="Skip this time"
             android:textColor="@color/white"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
     </LinearLayout>
 

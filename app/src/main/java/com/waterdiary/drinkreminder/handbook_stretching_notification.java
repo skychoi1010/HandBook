@@ -9,17 +9,17 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 
-public class handbook_stretching extends MasterBaseActivity {
+public class handbook_stretching_notification extends MasterBaseActivity {
     AppCompatTextView title;
     ImageView back;
-    AppCompatTextView game, self;
+    AppCompatTextView gameStretch, selfStretch, skipNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.handbook_stretch_drawer);
+        setContentView(R.layout.handbook_stretching_choice);
         title = findViewById(R.id.lbl_toolbar_title);
-        title.setText("Do More Stretching");
+        title.setText("");
         back = findViewById(R.id.btn_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,20 +28,28 @@ public class handbook_stretching extends MasterBaseActivity {
                 startActivity(intent);
             }
         });
-        game = findViewById(R.id.game);
-        game.setOnClickListener(new View.OnClickListener() {
+        gameStretch = findViewById(R.id.game);
+        gameStretch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(act, Screen_Dashboard.class);
                 startActivity(intent);
             }
         });
-        self = findViewById(R.id.self);
-        self.setOnClickListener(new View.OnClickListener() {
+        selfStretch = findViewById(R.id.self);
+        selfStretch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(act, Screen_Dashboard.class);
                 startActivity(intent);
+            }
+        });
+        skipNow = findViewById(R.id.self);
+        skipNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
             }
         });
     }

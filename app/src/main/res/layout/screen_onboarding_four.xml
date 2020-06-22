@@ -64,7 +64,7 @@
                         android:fontFamily="@font/calibri_bold"
                         android:gravity="center"
                         android:includeFontPadding="false"
-                        android:text="min"
+                        android:text="minutes"
                         android:textColor="@color/rdo_gender_select"
                         android:textSize="@dimen/dp_25" />
 
@@ -80,7 +80,7 @@
                 android:fontFamily="@font/calibri_light"
                 android:gravity="center"
                 android:includeFontPadding="true"
-                android:text="times per hour"
+                android:text="per hour"
                 android:textColor="@color/rdo_gender_select"
                 android:textSize="@dimen/dp_20" />
 
@@ -89,15 +89,15 @@
                 android:id="@+id/lbl_set_goal_manually"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="true"
-                android:gravity="center"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/dp_20"
+                android:fontFamily="@font/calibri_bold"
+                android:gravity="center"
+                android:includeFontPadding="true"
                 android:padding="@dimen/dp_10"
-                android:text="@string/str_set_your_goal_manually"
-                android:textSize="@dimen/dp_14"
+                android:text="SET YOUR GOAL MANUALLY  >>"
                 android:textColor="@color/white"
-                android:fontFamily="@font/calibri_bold"/>
+                android:textSize="@dimen/dp_14" />
 
             <!--android:textColor="@color/rdo_gender_select"-->
 

@@ -48,16 +48,7 @@
                 android:layout_height="wrap_content"
                 android:paddingEnd="@dimen/dp_3"
                 android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true">
-
-                <ImageView
-                    android:id="@+id/btn_save"
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="@dimen/dp_20"
-                    android:src="@drawable/ic_dot"
-                    android:tint="@color/rdo_gender_select"/>
-
-            </LinearLayout>
+                android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
 

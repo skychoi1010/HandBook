@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.jakob-grabner:Circle-Progress-View:1.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db4430067530b97062cc655fc7eb3a68/jetified-Circle-Progress-View-1.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db4430067530b97062cc655fc7eb3a68/jetified-Circle-Progress-View-1.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b702abcdbefcffaa180f518ea2249d5/jetified-Circle-Progress-View-1.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b702abcdbefcffaa180f518ea2249d5/jetified-Circle-Progress-View-1.4/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jakob-grabner/Circle-Progress-View/1.4/5e36e18aa359ad78832f1d279439e6a8256e6e93/Circle-Progress-View-1.4-javadoc.jar!/" />
