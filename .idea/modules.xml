@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HandBook.iml" filepath="$PROJECT_DIR$/HandBook.iml" group="HandBook" />
-      <module fileurl="file://$PROJECT_DIR$/HorizontalPicker/HorizontalPicker.iml" filepath="$PROJECT_DIR$/HorizontalPicker/HorizontalPicker.iml" group="HandBook/HorizontalPicker" />
-      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" group="HandBook/MPChartLib" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="HandBook/app" />
-      <module fileurl="file://$PROJECT_DIR$/appbasiclibs/appbasiclibs.iml" filepath="$PROJECT_DIR$/appbasiclibs/appbasiclibs.iml" group="HandBook/appbasiclibs" />
+      <module fileurl="file://$PROJECT_DIR$/Handbook.iml" filepath="$PROJECT_DIR$/Handbook.iml" group="Handbook" />
+      <module fileurl="file://$PROJECT_DIR$/HorizontalPicker/HorizontalPicker.iml" filepath="$PROJECT_DIR$/HorizontalPicker/HorizontalPicker.iml" group="Handbook/HorizontalPicker" />
+      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" group="Handbook/MPChartLib" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Handbook/app" />
+      <module fileurl="file://$PROJECT_DIR$/appbasiclibs/appbasiclibs.iml" filepath="$PROJECT_DIR$/appbasiclibs/appbasiclibs.iml" group="Handbook/appbasiclibs" />
     </modules>
   </component>
 </project>
