@@ -8,17 +8,6 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +16,19 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -38,9 +36,11 @@ import com.github.mikephil.charting.formatter.IFillFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.Utils;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 import com.waterdiary.drinkreminder.adapter.HistoryAdapter;
 import com.waterdiary.drinkreminder.base.MasterBaseAppCompatActivity;
@@ -308,23 +308,23 @@ public class Screen_Week_Report extends MasterBaseFragment
 
 			String str=avg_fre>1?sh.get_string(R.string.times):sh.get_string(R.string.time);
 
-			txt_avg_intake.setText("" + avg + " " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
-			txt_drink_fre.setText("" + avg_fre +" " + str + "/"+sh.get_string(R.string.day));
+			//txt_avg_intake.setText("" + avg + " " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
+			//txt_drink_fre.setText("" + avg_fre +" " + str + "/"+sh.get_string(R.string.day));
 
 		}
 		catch (Exception e){
-			txt_avg_intake.setText("0 " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
-			txt_drink_fre.setText("0 "+sh.get_string(R.string.time)+"/"+sh.get_string(R.string.day));
+			//txt_avg_intake.setText("0 " + URLFactory.WATER_UNIT_VALUE + "/"+sh.get_string(R.string.day));
+			//txt_drink_fre.setText("0 "+sh.get_string(R.string.time)+"/"+sh.get_string(R.string.day));
 		}
 
 		try {
 
 			int avg_com = (int) Math.round((total_drink * 100) / total_goal);
 
-			txt_drink_com.setText("" + avg_com + "%");
+			//txt_drink_com.setText("" + avg_com + "%");
 		}
 		catch (Exception e){
-			txt_drink_com.setText("0%");
+			//txt_drink_com.setText("0%");
 		}
 
 
@@ -357,17 +357,13 @@ public class Screen_Week_Report extends MasterBaseFragment
 
 				/*if (e == null)
 					return;
-
 				RectF bounds = onValueSelectedRectF;
 				chart.getBarBounds((BarEntry) e, bounds);
 				MPPointF position = chart.getPosition(e, YAxis.AxisDependency.LEFT);
-
 				Log.i("bounds", bounds.toString());
 				Log.i("position", position.toString());
-
 				Log.i("x-index", "low: " + chart.getLowestVisibleX() + ", high: "
 						+ chart.getHighestVisibleX());
-
 				MPPointF.recycleInstance(position);*/
 
 				//BarEntry entry = (BarEntry) e;
@@ -468,7 +464,6 @@ public class Screen_Week_Report extends MasterBaseFragment
 			float val1 = (float) (Math.random() * mul) + mul / 3;
 			float val2 = (float) (Math.random() * mul) + mul / 3;
 			//float val3 = (float) (Math.random() * mul) + mul / 3;
-
 			values.add(new BarEntry(
 					i,
 					new float[]{val1, val2},
@@ -688,7 +683,7 @@ public class Screen_Week_Report extends MasterBaseFragment
                     Log.i("MIN MAX", "xMin: " + chartNew.getXChartMin() + ", xMax: " + chartNew.getXChartMax() + ", yMin: " + chartNew.getYChartMin() + ", yMax: " + chartNew.getYChartMax());
 					Log.i("Entry selected", lst_date.get((int) e.getX()));*/
 
-                    if(e.getY()>0) {
+					if(e.getY()>0) {
 						//openMenuPicker("" + lst_date.get((int) e.getX()));
 					}
 				}
@@ -777,22 +772,22 @@ public class Screen_Week_Report extends MasterBaseFragment
 	public float getMaxGraphVal()
 	{
 		//return 120;
-        float val=1;
+		float val=1;
 
-        for(int k=0;k<lst_date_val.size();k++)
-        {
-            if(k==0)
-            {
-                val = Float.parseFloat("" + lst_date_val.get(k));
-                continue;
-            }
+		for(int k=0;k<lst_date_val.size();k++)
+		{
+			if(k==0)
+			{
+				val = Float.parseFloat("" + lst_date_val.get(k));
+				continue;
+			}
 
-            if(val<Float.parseFloat("" + lst_date_val.get(k)))
-                val=Float.parseFloat("" + lst_date_val.get(k));
+			if(val<Float.parseFloat("" + lst_date_val.get(k)))
+				val=Float.parseFloat("" + lst_date_val.get(k));
 
-        }
+		}
 
-        return val+100;
+		return val+100;
 	}
 
 	private void setData(int count) {
@@ -924,13 +919,13 @@ public class Screen_Week_Report extends MasterBaseFragment
 
 		ArrayList<HashMap<String, String>> arr_data=dh.getdata("tbl_drink_details","DrinkDate ='"+selected_date+"'","datetime(substr(DrinkDateTime, 7, 4) || '-' || substr(DrinkDateTime, 4, 2) || '-' || substr(DrinkDateTime, 1, 2) || ' ' || substr(DrinkDateTime, 12, 8))",1);
 
-        String mes_unit=URLFactory.WATER_UNIT_VALUE;
+		String mes_unit=URLFactory.WATER_UNIT_VALUE;
 
 		for(int k=0;k<arr_data.size();k++)
 		{
 			History history=new History();
 			history.setId(arr_data.get(k).get("id"));
-            history.setContainerMeasure(mes_unit);
+			history.setContainerMeasure(mes_unit);
 			history.setContainerValue(URLFactory.decimalFormat.format(Double.parseDouble(arr_data.get(k).get("ContainerValue")))+" "+mes_unit);
 			history.setContainerValueOZ(URLFactory.decimalFormat.format(Double.parseDouble(arr_data.get(k).get("ContainerValueOZ")))+" "+mes_unit);
 			history.setDrinkDate(arr_data.get(k).get("DrinkDate"));

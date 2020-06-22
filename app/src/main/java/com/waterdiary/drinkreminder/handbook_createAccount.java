@@ -1,15 +1,11 @@
 package com.waterdiary.drinkreminder;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 
 public class handbook_createAccount extends MasterBaseActivity {
@@ -34,6 +32,7 @@ public class handbook_createAccount extends MasterBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.handbook_create_account);
+
         AppCompatTextView createAccount = findViewById(R.id.createacc);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -64,8 +63,8 @@ public class handbook_createAccount extends MasterBaseActivity {
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email_str = email.getText().toString();
-                String pwd_str = password.getText().toString();
+                final String email_str = email.getText().toString();
+                final String pwd_str = password.getText().toString();
                 final String name_str = name.getText().toString();
 /*
                 if(email_str.length() == 0){
@@ -89,19 +88,103 @@ public class handbook_createAccount extends MasterBaseActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Intent intent = new Intent(handbook_createAccount.this, handbook_start.class);
-                                    intent.putExtra("name", name_str);
-                                    startActivity(intent);
-                                    finish();
+                                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    //Toast.makeText(handbook_start.this, "username"+ username, Toast.LENGTH_SHORT).show();
+                                    if (user != null) {
+                                        // User is signed in
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(name_str)
+                                                .build();
+                                        user.updateProfile(profileUpdates)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            //successful
+                                                        }
+                                                    }
+                                                });
+                                        user.updateEmail(email_str)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            //success
+                                                        }
+                                                    }
+                                                });
+                                        String userId = user.getUid();
+                                        //Example you need save a Store in
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                        DatabaseReference userdata = database.getReference("UserData");
+                                        UserData userdataStorage = new UserData(email_str, name_str, pwd_str, "vibration", 20, 0, null);
+                                        userdata.child(userId).setValue(userdataStorage);
+                                        Intent intent = new Intent(handbook_createAccount.this, handbook_start.class);
+                                        intent.putExtra("email", email_str);
+                                        intent.putExtra("pwd", pwd_str);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        // No user is signed in
+                                        Toast.makeText(handbook_createAccount.this, "no user signed in", Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
-                                    Toast.makeText(handbook_createAccount.this, "account creation error", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(handbook_createAccount.this, "email already exists", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                             }
                         });
 
+
             }
         });
+
     }
 
+    public void setUsername(String username) {
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //Toast.makeText(handbook_start.this, "username"+ username, Toast.LENGTH_SHORT).show();
+        if (user != null) {
+            // User is signed in
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(username)
+                    .build();
+
+            user.updateProfile(profileUpdates)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                //successful
+                                //Toast.makeText(handbook_start.this, "displayname"+ user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        } else {
+            // No user is signed in
+        }
+    }
+
+    public class UserData {
+        public String email;
+        public String name;
+        public String password;
+        public String noti_type;
+        public int interval;
+        public int coins;
+        public String coupons;
+
+        public UserData(){};
+
+        public UserData(String email, String name, String password, String noti_type, int interval, int coins, String coupons) {
+            this.email = email;
+            this.name = name;
+            this.password = password;
+            this.noti_type = noti_type;
+            this.interval = interval;
+            this.coins = coins;
+            this.coupons = coupons;
+        }
+    }
 }

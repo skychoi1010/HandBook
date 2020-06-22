@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Water Diary</string>
+    <string name="app_name">Handbook</string>
 
     <string name="only_digit_character" translatable="false">0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="only_digit" translatable="false">0123456789</string>
@@ -81,6 +81,7 @@
     <string name="str_store">Store</string>
     <string name="str_health_tips">Health Tips</string>
 
+    <string name="str_logout">Logout</string>
     <string name="str_drink_water">Drink Water</string>
     <string name="str_drink_history">Drink History</string>
     <string name="str_settings">Settings</string>
@@ -328,5 +329,6 @@
     <string name="faq_answer_8">You can click on the menu and select Drink History then view your drink history.</string>
     <string name="faq_answer_9">You can click on the menu and select Drink Report option then view using following 3 options:\n1. Weekly Report\n2. Monthly Report\n3. Yearly Report</string>
     <string name="health_tips">Health Tips</string>
+    <string name="map_key" />
 
 </resources>
