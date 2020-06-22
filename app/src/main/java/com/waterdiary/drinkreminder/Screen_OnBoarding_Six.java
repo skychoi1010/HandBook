@@ -1,12 +1,13 @@
 package com.waterdiary.drinkreminder;
 
 import android.os.Bundle;
-import androidx.appcompat.widget.AppCompatTextView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.waterdiary.drinkreminder.base.MasterBaseAppCompatActivity;
 import com.waterdiary.drinkreminder.base.MasterBaseFragment;
@@ -97,7 +98,7 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 
 	private void Body()
 	{
-		rdo_15.setText("15 "+sh.get_string(R.string.str_min));
+		/*rdo_15.setText("15 "+sh.get_string(R.string.str_min));
 		rdo_30.setText("30 "+sh.get_string(R.string.str_min));
 		rdo_45.setText("45 "+sh.get_string(R.string.str_min));
 		rdo_60.setText("1 "+sh.get_string(R.string.str_hour));
@@ -144,7 +145,7 @@ public class Screen_OnBoarding_Six extends MasterBaseFragment
 			public void onClick(View v) {
 				setCount();
 			}
-		});
+		});*/
 	}
 
 	public void openAutoTimePicker(final AppCompatTextView appCompatTextView, final boolean isFrom)

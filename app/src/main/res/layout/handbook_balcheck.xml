@@ -1,82 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/aasd"
-        android:layout_width="261dp"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:text="Coupon Store"
-        android:textSize="@dimen/dp_25"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+    <include
+        layout="@layout/header_with_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="@dimen/dp_200"
         android:layout_height="64dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/totpointtext"
             android:layout_width="150dp"
             android:layout_height="match_parent"
+            android:fontFamily="@font/calibri_bold"
             android:gravity="center"
             android:text="Current points"
-            android:textSize="@dimen/dp_15" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/totpoint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center" />
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.10"
-        app:srcCompat="@drawable/custom_thumb" />
-
-    <View
-        android:id="@+id/vie"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-        app:layout_constraintEnd_toEndOf="@+id/imageView14"
-        app:layout_constraintStart_toStartOf="@+id/imageView14"
-        app:layout_constraintTop_toTopOf="@+id/imageView14" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_80"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.13">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="@dimen/dp_100"
@@ -87,14 +59,16 @@
                 android:id="@+id/coupcosttext"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:fontFamily="@font/calibri_bold"
                 android:gravity="center"
                 android:text="Coupon cost"
-                android:textSize="@dimen/dp_15" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/newbaltext"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:fontFamily="@font/calibri_bold"
                 android:gravity="center"
                 android:text="New balance"
                 android:textSize="@dimen/dp_15" />
@@ -110,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_40"
                 android:ems="10"
+                android:fontFamily="@font/calibri_bold"
                 android:inputType="numberDecimal"
                 android:textSize="@dimen/dp_15" />
 
@@ -118,39 +93,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_40"
                 android:ems="10"
+                android:fontFamily="@font/calibri_bold"
                 android:inputType="numberDecimal"
                 android:textSize="@dimen/dp_15" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buy_co"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:background="#E91E63"
+            android:background="@color/cross"
+            android:fontFamily="@font/calibri_bold"
             android:text="Buy"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dp_15" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/no_buy"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginStart="@dimen/dp_50"
-            android:background="#03A9F4"
+            android:layout_marginStart="30dp"
+            android:background="@color/black_20"
+            android:fontFamily="@font/calibri_bold"
             android:text="Back"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dp_15" />
+            android:textSize="18sp" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

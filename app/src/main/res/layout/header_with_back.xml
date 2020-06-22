@@ -51,12 +51,12 @@
                 android:layout_alignParentEnd="true">
 
                 <ImageView
-                    android:id="@+id/btn_save"
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="@dimen/dp_20"
-                    android:src="@drawable/ic_dot"
-                    android:tint="@color/rdo_gender_select"/>
-
+                    android:id="@+id/imageView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_dot"
+                    tools:visibility="gone" />
             </LinearLayout>
 
         </RelativeLayout>

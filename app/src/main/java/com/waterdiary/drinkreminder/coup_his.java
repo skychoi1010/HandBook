@@ -1,11 +1,15 @@
 package com.waterdiary.drinkreminder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,9 +29,22 @@ public class coup_his extends MasterBaseActivity {
     coup_adapter adapter;
     ArrayList<coup_u> his_list = new ArrayList<coup_u>();
     ListView mListView;
+    AppCompatTextView title;
+    ImageView back;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coup_store);
+        title = findViewById(R.id.lbl_toolbar_title);
+        title.setText("Coupons Bought");
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(act, Screen_Dashboard.class);
+                startActivity(intent);
+            }
+        });
         Log.d("news", "bichua");
         mListView = findViewById(R.id.his_lis);
         mDatabase = FirebaseDatabase.getInstance().getReference();

@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_150"
-    android:layout_weight="80">
+    android:layout_weight="80"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         <ImageView
             android:id="@+id/coupon_id"
             android:layout_width="@dimen/dp_300"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

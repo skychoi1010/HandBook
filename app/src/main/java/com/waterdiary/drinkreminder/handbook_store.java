@@ -1,28 +1,28 @@
 package com.waterdiary.drinkreminder;
 
         import android.content.Intent;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.AdapterView;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+        import android.widget.ImageView;
         import android.widget.ListView;
-        import android.widget.TextView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
+import androidx.annotation.NonNull;
+        import androidx.appcompat.widget.AppCompatTextView;
 
         import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
-        import com.waterdiary.drinkreminder.base.MasterBaseActivity;
-        import com.waterdiary.drinkreminder.worker.coupon_class;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.waterdiary.drinkreminder.base.MasterBaseActivity;
+import com.waterdiary.drinkreminder.worker.coupon_class;
 
-        import java.util.ArrayList;
-        import java.util.Arrays;
-        import java.util.List;
+import java.util.ArrayList;
 
 public class handbook_store extends MasterBaseActivity {
     ListView nListView;
@@ -30,10 +30,25 @@ public class handbook_store extends MasterBaseActivity {
     ArrayList<coupon_class> coup_list = new ArrayList<>();
     store_adapt adapter;
     TextView history;
+    AppCompatTextView title;
+    ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.handbook_store);
+
+        title = findViewById(R.id.lbl_toolbar_title);
+        title.setText("Coupon Store");
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(act, Screen_Dashboard.class);
+                startActivity(intent);
+            }
+        });
+
         nListView=findViewById(R.id.couponlis);
         nDatabase = FirebaseDatabase.getInstance().getReference();
         nDatabase.keepSynced(true);

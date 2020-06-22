@@ -1,6 +1,11 @@
 package com.waterdiary.drinkreminder;
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
@@ -9,10 +14,13 @@ import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.waterdiary.drinkreminder.R;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -22,37 +30,19 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.widget.Toast;
-import com.waterdiary.drinkreminder.R;
+import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 import com.waterdiary.drinkreminder.worker.News;
 import com.waterdiary.drinkreminder.worker.handbook_hospitaldata;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
+
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-
-import com.waterdiary.drinkreminder.base.MasterBaseActivity;
 
 public class handbook_healthtips extends MasterBaseActivity {
     ArrayList<handbook_hospitaldata> hosp_list = new ArrayList<>();
@@ -69,10 +59,23 @@ public class handbook_healthtips extends MasterBaseActivity {
     ListView mListView;
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
+    AppCompatTextView title;
+    ImageView back;
+
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.handbook_healthtips);
+        title = findViewById(R.id.lbl_toolbar_title);
+        title.setText("Health Tips");
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(act, Screen_Dashboard.class);
+                startActivity(intent);
+            }
+        });
             TextView Tips = findViewById(R.id.healthTips);
             mListView = findViewById(R.id.newslist);
             nDatabase = FirebaseDatabase.getInstance().getReference();
@@ -115,7 +118,8 @@ public class handbook_healthtips extends MasterBaseActivity {
                                         }
                                     }
             );
-        }
+    }
+
     public void getFirebaseNews() {
         final ValueEventListener postListener = new ValueEventListener() {
             @Override
@@ -135,7 +139,9 @@ public class handbook_healthtips extends MasterBaseActivity {
         };
         mDatabase.child("/news").addValueEventListener(postListener);
     }
+
     public final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;
+
     public int calculateDistanceInKilometer(double userLat, double userLng,
                                             double venueLat, double venueLng) {
 

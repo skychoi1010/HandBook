@@ -50,7 +50,8 @@
 
 
         <activity android:name="com.waterdiary.drinkreminder.handbook_start" />
-
+        <activity android:name="com.waterdiary.drinkreminder.handbook_stretching_notification" />
+        <activity android:name="com.waterdiary.drinkreminder.handbook_stretching_self" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_createAccount" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_healthtips" />
         <activity android:name="com.waterdiary.drinkreminder.handbook_tips" />

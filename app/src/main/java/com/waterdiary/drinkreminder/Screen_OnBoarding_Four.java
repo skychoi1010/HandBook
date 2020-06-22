@@ -1,27 +1,13 @@
 package com.waterdiary.drinkreminder;
 
-import android.app.Dialog;
-import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatTextView;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.waterdiary.drinkreminder.base.MasterBaseFragment;
-import com.waterdiary.drinkreminder.custom.InputFilterWeightRange;
-import com.waterdiary.drinkreminder.utils.HeightWeightHelper;
-import com.waterdiary.drinkreminder.utils.URLFactory;
 
 
 public class Screen_OnBoarding_Four extends MasterBaseFragment
@@ -36,50 +22,9 @@ public class Screen_OnBoarding_Four extends MasterBaseFragment
 		item_view=inflater.inflate(R.layout.screen_onboarding_four, container, false);
 
 		FindViewById();
-		Body();
+		//Body();
 
 		return item_view;
-	}
-
-	public String getData(String str)
-	{
-		return  str.replace(",",".");
-	}
-
-	public void setUserVisibleHint(boolean isVisibleToUser) {
-
-		super.setUserVisibleHint(isVisibleToUser);
-		if(isVisibleToUser)
-		{
-			if(ph.getBoolean(URLFactory.SET_MANUALLY_GOAL))
-			{
-				//calculate_goal();
-				URLFactory.DAILY_WATER_VALUE=ph.getFloat(URLFactory.SET_MANUALLY_GOAL_VALUE);
-				ph.savePreferences(URLFactory.DAILY_WATER, URLFactory.DAILY_WATER_VALUE);
-
-				//ah.customAlert("call manually");
-
-				//lbl_goal.setText(getData("" + URLFactory.DAILY_WATER_VALUE));
-				lbl_goal.setText(getData("" + (int)URLFactory.DAILY_WATER_VALUE));
-
-				if (ph.getBoolean(URLFactory.PERSON_WEIGHT_UNIT))
-				{
-					lbl_unit.setText("ml");
-				}
-				else
-				{
-					lbl_unit.setText("fl oz");
-				}
-			}
-			else
-			{
-				calculate_goal();
-			}
-		}
-		else{
-			//no
-		}
-
 	}
 
 	private void FindViewById()
@@ -89,172 +34,7 @@ public class Screen_OnBoarding_Four extends MasterBaseFragment
 		lbl_unit=item_view.findViewById(R.id.lbl_unit);
 	}
 
-	private void Body()
-	{
-		if(ph.getBoolean(URLFactory.SET_MANUALLY_GOAL)) {
-//			calculate_goal();
-			URLFactory.DAILY_WATER_VALUE=ph.getFloat(URLFactory.SET_MANUALLY_GOAL_VALUE);
-			ph.savePreferences(URLFactory.DAILY_WATER, URLFactory.DAILY_WATER_VALUE);
-
-			//ah.customAlert("call manually");
-
-			lbl_goal.setText(getData("" + URLFactory.DAILY_WATER_VALUE));
-
-			if (ph.getBoolean(URLFactory.PERSON_WEIGHT_UNIT))
-			{
-				lbl_unit.setText("ml");
-			}
-			else
-			{
-				lbl_unit.setText("fl oz");
-			}
-		}
-		else
-		{
-			calculate_goal();
-		}
-
-		lbl_set_goal_manually.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				showSetManuallyGoalDialog();
-			}
-		});
-	}
-
-	public void calculate_goal()
-	{
-		String tmp_weight=""+ph.getString(URLFactory.PERSON_WEIGHT);
-
-		boolean isFemale=ph.getBoolean(URLFactory.USER_GENDER);
-		boolean isActive=ph.getBoolean(URLFactory.IS_ACTIVE);
-		boolean isPregnant=ph.getBoolean(URLFactory.IS_PREGNANT);
-		boolean isBreastfeeding=ph.getBoolean(URLFactory.IS_BREATFEEDING);
-		int weatherIdx=ph.getInt(URLFactory.WEATHER_CONSITIONS);
-
-		if(!sh.check_blank_data(tmp_weight))
-		{
-			double tot_drink=0;
-			double tmp_kg = 0;
-			if (ph.getBoolean(URLFactory.PERSON_WEIGHT_UNIT))
-			{
-				tmp_kg = Double.parseDouble("" + tmp_weight);
-
-			}
-			else
-			{
-				tmp_kg = HeightWeightHelper.lbToKgConverter(Double.parseDouble(tmp_weight));
-			}
-
-			Log.d("tot_drink 1 ",""+tot_drink);
-
-			if(isFemale)
-				tot_drink=isActive?tmp_kg*URLFactory.ACTIVE_FEMALE_WATER:tmp_kg*URLFactory.FEMALE_WATER;
-			else
-				tot_drink=isActive?tmp_kg*URLFactory.ACTIVE_MALE_WATER:tmp_kg*URLFactory.MALE_WATER;
-
-			Log.d("tot_drink 2 ",""+tot_drink);
-
-			if(weatherIdx==1)
-				tot_drink*=URLFactory.WEATHER_CLOUDY;
-			else if(weatherIdx==2)
-				tot_drink*=URLFactory.WEATHER_RAINY;
-			else if(weatherIdx==3)
-				tot_drink*=URLFactory.WEATHER_SNOW;
-			else
-				tot_drink*=URLFactory.WEATHER_SUNNY;
-
-			Log.d("tot_drink 3 ",""+tot_drink);
-
-			if(isPregnant && isFemale)
-			{
-				tot_drink+=URLFactory.PREGNANT_WATER;
-			}
-
-			Log.d("tot_drink 4 ",""+tot_drink);
-
-			if(isBreastfeeding && isFemale)
-			{
-				tot_drink+=URLFactory.BREASTFEEDING_WATER;
-			}
-
-			Log.d("tot_drink 5 ",""+tot_drink);
-
-			if(tot_drink<900)
-				tot_drink=900;
-
-			if(tot_drink>8000)
-				tot_drink=8000;
-
-			Log.d("tot_drink 6 ",""+tot_drink);
-
-			double tot_drink_fl_oz = HeightWeightHelper.mlToOzConverter(tot_drink);
-
-			if (ph.getBoolean(URLFactory.PERSON_WEIGHT_UNIT))
-			{
-				//lbl_goal.setText(getData("" + tmp_ml));
-				lbl_unit.setText("ml");
-				URLFactory.DAILY_WATER_VALUE = (float) tot_drink;
-			}
-			else
-			{
-				//lbl_goal.setText(getData("" + URLFactory.decimalFormat.format(tmp_oz)));
-				lbl_unit.setText("fl oz");
-				URLFactory.DAILY_WATER_VALUE = (float) tot_drink_fl_oz;
-
-			}
-
-			URLFactory.DAILY_WATER_VALUE=Math.round(URLFactory.DAILY_WATER_VALUE);
-			lbl_goal.setText(getData("" + (int)URLFactory.DAILY_WATER_VALUE));
-
-			ph.savePreferences(URLFactory.DAILY_WATER, URLFactory.DAILY_WATER_VALUE);
-		}
-	}
-
-	public void calculate_goal_old()
-	{
-		String tmp_weight=""+ph.getString(URLFactory.PERSON_WEIGHT);
-		if(!sh.check_blank_data(tmp_weight))
-		{
-			double tmp_lbs = 0;
-			if (ph.getBoolean(URLFactory.PERSON_WEIGHT_UNIT))
-			{
-				tmp_lbs = HeightWeightHelper.kgToLbConverter(Double.parseDouble(tmp_weight));
-			}
-			else
-			{
-				tmp_lbs = Double.parseDouble("" + tmp_weight);
-			}
-
-			double tmp_oz = tmp_lbs * 0.5;
-
-			double tmp_ml = HeightWeightHelper.ozToMlConverter(tmp_oz);
-
-			//double rounded_up = 100 * Math.ceil(tmp_ml / 100);
-
-			if (ph.getBoolean(URLFactory.PERSON_WEIGHT_UNIT))
-			{
-				//lbl_goal.setText(getData("" + tmp_ml));
-				lbl_unit.setText("ml");
-				URLFactory.DAILY_WATER_VALUE = (float) tmp_ml;
-			}
-			else
-			{
-				//lbl_goal.setText(getData("" + URLFactory.decimalFormat.format(tmp_oz)));
-				lbl_unit.setText("fl oz");
-				URLFactory.DAILY_WATER_VALUE = (float) tmp_oz;
-
-			}
-
-			URLFactory.DAILY_WATER_VALUE=Math.round(URLFactory.DAILY_WATER_VALUE);
-			lbl_goal.setText(getData("" + (int)URLFactory.DAILY_WATER_VALUE));
-
-			ph.savePreferences(URLFactory.DAILY_WATER, URLFactory.DAILY_WATER_VALUE);
-		}
-	}
-
-
-
+	/*
 
     boolean isExecute=true,isExecuteSeekbar=true;
 
@@ -281,7 +61,7 @@ public class Screen_OnBoarding_Four extends MasterBaseFragment
 			lbl_goal2.setText( getData(URLFactory.decimalFormat.format(ph.getFloat(URLFactory.SET_MANUALLY_GOAL_VALUE))));
 		else
 			lbl_goal2.setText( getData(URLFactory.decimalFormat.format(ph.getFloat(URLFactory.DAILY_WATER))));*/
-
+/*
 		if(ph.getBoolean(URLFactory.SET_MANUALLY_GOAL))
 			lbl_goal2.setText( getData(""+(int)(ph.getFloat(URLFactory.SET_MANUALLY_GOAL_VALUE))));
 		else
@@ -421,5 +201,5 @@ public class Screen_OnBoarding_Four extends MasterBaseFragment
 		dialog.setContentView(view);
 
 		dialog.show();
-	}
+	}*/
 }

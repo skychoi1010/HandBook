@@ -64,7 +64,7 @@
                         android:fontFamily="@font/calibri_bold"
                         android:gravity="center"
                         android:includeFontPadding="false"
-                        android:text="min"
+                        android:text="minutes"
                         android:textColor="@color/rdo_gender_select"
                         android:textSize="@dimen/dp_25" />
 
@@ -80,7 +80,7 @@
                 android:fontFamily="@font/calibri_light"
                 android:gravity="center"
                 android:includeFontPadding="true"
-                android:text="times per hour"
+                android:text="per hour when using smartphones"
                 android:textColor="@color/rdo_gender_select"
                 android:textSize="@dimen/dp_20" />
 

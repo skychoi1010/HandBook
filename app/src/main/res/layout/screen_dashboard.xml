@@ -49,47 +49,39 @@
 
                             <LinearLayout
                                 android:id="@+id/next_reminder_block"
-                                android:layout_centerHorizontal="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
+                                android:layout_centerHorizontal="true"
                                 android:layout_gravity="center_horizontal"
-                                android:paddingTop="@dimen/dp_10"
-                                android:paddingBottom="@dimen/dp_10"
                                 android:layout_marginBottom="@dimen/dp_10"
-                                android:background="@drawable/drawable_button_background">
+                                android:background="@drawable/drawable_button_background"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/dp_10"
+                                android:paddingBottom="@dimen/dp_10">
 
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/lbl_next_reminder"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginStart="@dimen/dp_5"
                                     android:layout_marginEnd="@dimen/dp_14"
-                                    android:paddingBottom="2dp"
+                                    android:fontFamily="@font/calibri_regular"
+                                    android:gravity="center"
                                     android:includeFontPadding="true"
+                                    android:paddingBottom="2dp"
                                     android:text="@string/str_next_reminder"
-                                    android:textSize="@dimen/dp_14"
                                     android:textColor="@color/white"
-                                    android:fontFamily="@font/calibri_regular"/>
+                                    android:textSize="@dimen/dp_14" />
 
                             </LinearLayout>
-
-                        </RelativeLayout>
-
-
-                        <RelativeLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:orientation="vertical">
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="@dimen/dp_10"
+                                android:layout_marginStart="330dp"
                                 android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginEnd="@dimen/dp_10"
                                 android:layout_marginBottom="@dimen/dp_10">
 
                                 <RelativeLayout
@@ -130,6 +122,14 @@
                                     android:textSize="@dimen/dp_10" />
 
                             </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:orientation="vertical">
 
                             <RelativeLayout
                                 android:id="@+id/bottle"
@@ -464,8 +464,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@+id/menu_header"
-            android:layout_above="@+id/menu_footer">
+            android:layout_below="@+id/menu_header">
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -475,20 +474,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/left_drawer"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    />
+                    android:layout_height="fill_parent" />
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
-
-        <LinearLayout
-            android:id="@+id/menu_footer"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dp_10"
-            android:orientation="horizontal"/>
 
     </RelativeLayout>
 

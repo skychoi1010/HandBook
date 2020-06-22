@@ -1,24 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="218dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="494dp"
-        android:text="App Explain"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:padding="15dp"
+        android:text="Welcom to"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Handbook"
+            android:textColor="@color/rdo_gender_select"
+            android:textSize="@dimen/dp_35" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="Our app helps you develop"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_bold"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:padding="10dp"
+        android:text="better smartphone using habits"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text="to reduce the burden on your hands."
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:text='We have interactive UI and games not designed for "treatment", but for '
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_bold"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:padding="10dp"
+        android:text="preventing such hand injuries"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="@dimen/dp_20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/calibri_light"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="We hope to provide you a new experience while using our app"
+        android:textColor="@color/rdo_gender_select"
+        android:textSize="24sp" />
+
+</LinearLayout>

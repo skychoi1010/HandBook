@@ -1,43 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="210dp"
+    android:layout_height="175dp">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_80"
-        android:orientation="vertical"
-        android:weightSum="100">
-
-        <TextView
-            android:id="@+id/newstitle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="25"
-            android:gravity="center|start"
-            android:textAlignment="center"
-            android:textSize="@dimen/dp_20" />
-
-    <TextView
-        android:id="@+id/newsubtitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="80"
-        android:gravity="center_horizontal|left|center_vertical"
-        android:textSize="14sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_30"
-        android:layout_weight="10"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/link"
-            android:layout_width="@dimen/dp_315"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:autoLink="web"
             android:gravity="center|left"
             android:textAlignment="center"
-            android:autoLink="web"
-            android:textSize="@dimen/dp_10" />
+            android:textSize="@dimen/dp_10"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/read"
@@ -48,4 +28,31 @@
 
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/newstitle"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/calibri_bold"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="title"
+            android:textAlignment="inherit"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/newsubtitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/calibri_regular"
+            android:gravity="right|center_horizontal"
+            android:padding="5dp"
+            android:text="sub"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
